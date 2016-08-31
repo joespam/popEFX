@@ -1,0 +1,4 @@
+= link_to "Upload New Image", new_picture_path
+
+- @pictures.each do |pic|
+	%h2= link_to pic.title, picture_path(pic)

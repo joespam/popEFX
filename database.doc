@@ -1,0 +1,21 @@
+Picture
+
+belongs to user
+image
+price
+userid?
+
+user
+
+username
+email
+address?
+phone number
+level
+
+KeywordTable
+
+keyword
+list of items
+
+admin
