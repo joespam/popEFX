@@ -4,6 +4,8 @@ class User < ActiveRecord::Base
 	devise :database_authenticatable, :registerable,
 	      :recoverable, :rememberable, :trackable, :validatable
 
+	has_many :pictures
+
 	validates :username,
 	  :presence => true,
 	  :uniqueness => {
@@ -15,7 +17,6 @@ class User < ActiveRecord::Base
 	def validate_username
 		if User.where(email: username).exists?
 			errors.add(:username, :invalid)
-			puts "--------------------------------------username is #{username}"
 		end
 	end
 
@@ -28,8 +29,6 @@ class User < ActiveRecord::Base
 	end
 
 	def self.find_for_database_authentication(warden_conditions)
-			puts "--------------------------------------wTF"
-
 		conditions = warden_conditions.dup
 		if login = conditions.delete(:login)
 			# the use of 'lower' in mySQL may result in any index on the email column to be ignored.
