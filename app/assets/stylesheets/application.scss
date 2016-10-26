@@ -16,3 +16,124 @@
 
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+/*
+	system overrides for link
+*/
+
+body {
+	background-color: black;
+	color: rgb(63,168,161);
+	a {
+		color: rgb(63,168,161);
+	}
+}
+
+.maintheme {
+	background-color: black;
+}
+
+.maintheme-link ul li a {
+	color: rgb(63,168,161);	
+}
+
+.navbarStack {
+	height: 18px !important;
+}
+
+.categoryColumn {
+	margin: 5px;
+}
+
+.navbar-toprow {
+	font-size: 12pt;
+	margin-top: 50px;
+	margin-left: 75px;
+	padding-left: 75px;
+}
+
+.navbar-row2 {
+	font-size: 8pt;
+	margin-top: 5px;
+	margin-left: 75px;
+	padding-left: 75px;
+}
+
+.page-heading {
+	font-size: 12pt;
+	font-style: bold;
+	color: white;
+	text-align: center;
+	padding: 10px;
+}
+
+.image-frame {
+	padding: 5px;
+	a {
+		width: 100%;
+	}
+}
+
+/*
+	bootstrap overrides
+*/
+
+.navbar-button {
+	color: white !important;
+}
+
+.navbar-default .navbar-nav {
+	li {
+		a {
+			color: rgb(63,168,161);
+			padding: 7px;
+		}
+	}
+}
+
+.navbar {
+	height: 125px;
+	background-color: white;
+	color: rgb(63,168,161);
+}
+
+.btn {
+	padding: 14px 24px;
+	border: 0 none;
+	font-weight: 700;
+	letter-spacing: 1px;
+	text-transform: uppercase;
+}
+ 
+.btn:focus, .btn:active:focus, .btn.active:focus {
+	outline: 0 none;
+}
+ 
+.btn-primary {
+	background: rgb(63,168,161);
+	a {
+		color: white;
+	}
+}
+
+.btn-primary.raised {
+	// box-shadow: 0 3px 0 0 #007299;
+	box-shadow: 0 3px 0 0 #ffffff;
+}
+
+// .btn-primary:hover, .btn-primary:focus, .open > .dropdown-toggle.btn-primary {
+// 	background: #33a6cc;
+// }
+
+// .btn-primary.raised:active, .btn-primary.raised.active {
+// 	background: #33a6cc;
+// 	box-shadow: none;
+// 	margin-bottom: -3px;
+// 	margin-top: 3px;
+// }
+
+// .btn-primary:active, .btn-primary.active {
+// 	background: #007299;
+// 	box-shadow: none;
+// }
+

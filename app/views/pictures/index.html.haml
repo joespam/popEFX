@@ -1,3 +1,37 @@
+.container
+	#Images
+	.col-md-3
+		.categoryColumn
+			.page-heading
+				Most Viewed Images
+			- @pictures.each do |pic|
+				.image-frame   
+					= link_to (image_tag pic.image.url(:medium)), pic
 
-- @pictures.each do |pic|
-	%h2= link_to pic.title, picture_path(pic)
+	#Videos
+	.col-md-3
+		.categoryColumn
+			.page-heading
+				Most Viewed Videos
+			- @pictures.each do |pic|   
+				.image-frame   
+					= link_to (image_tag pic.image.url(:medium)), pic
+
+	#Code
+	.col-md-3
+		.categoryColumn
+			.page-heading
+				Most Viewed Code
+			- @pictures.each do |pic|   
+				.image-frame   
+					= link_to (image_tag pic.image.url(:medium)), pic
+
+	#Animation
+	.col-md-3
+		.categoryColumn
+			.page-heading
+				Most Viewed Animations
+			- @pictures.each do |pic|   
+				.image-frame
+					= link_to (image_tag pic.image.url(:medium)), pic
+

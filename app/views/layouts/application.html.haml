@@ -6,20 +6,37 @@
 	= javascript_include_tag 'application', 'data-turbolinks-track' => true
 	= csrf_meta_tags
 %body
-	%nav.navbar.navbar-default
+	%nav.navbar.navbar-default.maintheme-link
 		.container
-			.navber-brand= link_to "pop!EFX", root_path
+			.col-md-1
+				.navbar-brand= link_to "#{image_tag("popEFX_logo.png", :height => 100)}".html_safe, root_path
 
-			- if user_signed_in?
-				%ul.nav.navbar-nav.navbar-right
-					%li= link_to "New Picture", new_picture_path
-					%li= link_to "Account", edit_user_registration_path
-					%li= link_to "Sign Out", destroy_user_session_path
-			- else
-				%ul.nav.navbar-nav.navbar-right
-					%li= link_to "Sign Up", new_user_registration_path
-					%li= link_to "Sign In", new_user_session_path
-	.container
+			.col-md-6
+				.row.navbar-toprow
+					%ul.navbarStack.nav.navbar-nav.navbar-center
+						%li= link_to "New Artists", "#"
+						%li= link_to "Images", new_picture_path
+						%li= link_to "Illustrations", "#"
+						%li= link_to "Videos", "#"
+						%li= link_to "Code", "#"
+				.row.navbar-row2
+					%ul.navbarStack.nav.navbar-nav.navbar-center
+						%li= link_to "Level 1", "#"
+						%li= link_to "Level 2", "#"
+						%li= link_to "Level 3", "#"
+			.col-md-5
+				.row.navbar-toprow
+					- if user_signed_in?
+						%ul.nav.navbar-nav.navbar-right
+							%li= link_to "New Picture", new_picture_path
+							%li= link_to "Account", edit_user_registration_path
+							%li= link_to "Sign Out", destroy_user_session_path, method: :delete, class: "btn btn-primary navbar-button"
+					- else
+						%ul.nav.navbar-nav.navbar-right
+							%li= link_to "Sign Up", new_user_registration_path
+							%li= link_to "Sign In", new_user_session_path, class: "btn btn-primary navbar-button"
+
+	.container.maintheme
 		- flash.each do |name, msg|
 			= content_tag :div, msg, class: "alert alert-info"
 
