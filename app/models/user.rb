@@ -5,6 +5,8 @@ class User < ActiveRecord::Base
 	      :recoverable, :rememberable, :trackable, :validatable
 
 	has_many :pictures
+	has_one :profile
+	accepts_nested_attributes_for :profile
 
 	validates :username,
 	  :presence => true,
@@ -37,5 +39,11 @@ class User < ActiveRecord::Base
 		  where(conditions.to_hash).first
 		end
 	end
+
+	protected
+
+	def profile
+	  super || build_profile
+	end 
 
 end

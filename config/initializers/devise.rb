@@ -273,5 +273,8 @@ Devise.setup do |config|
   # config.omniauth_path_prefix = '/my_engine/users/auth'
 
   # to allow users to login with username or email
-  config.authentication_keys = [ :login ]
+  # note - if the below line is uncommented, users can't login with email.
+  # further work needs to be done on the login view to fix this, but for now, 
+  # login can happen with just email.
+  # config.authentication_keys = [ :login ]
 end

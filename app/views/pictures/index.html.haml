@@ -5,7 +5,7 @@
 			.page-heading
 				Most Viewed Images
 			- @pictures.each do |pic|
-				.image-frame   
+				.image-frame
 					= link_to (image_tag pic.image.url(:medium)), pic
 
 	#Videos

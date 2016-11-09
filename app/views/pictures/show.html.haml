@@ -3,7 +3,7 @@
 %p= @picture.description
 %p
 Submitted by
-= @picture.user.username
+= link_to @picture.user.username, @picture.user
 %br
 = link_to "Back", root_path
 = link_to "Edit", edit_picture_path
