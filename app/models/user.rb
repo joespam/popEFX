@@ -9,7 +9,7 @@ class User < ActiveRecord::Base
 	accepts_nested_attributes_for :profile
 
 	validates :username,
-	  :presence => true,
+	  :presence => false,
 	  :uniqueness => {
 	    :case_sensitive => false
 	  }

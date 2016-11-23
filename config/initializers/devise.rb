@@ -220,7 +220,7 @@ Devise.setup do |config|
   # Turn scoped views on. Before rendering "sessions/new", it will first check for
   # "users/sessions/new". It's turned off by default because it's slower if you
   # are using only default views.
-  # config.scoped_views = false
+  # config.scoped_views = true
 
   # Configure the default scope given to Warden. By default it's the first
   # devise role declared in your routes (usually :user).
@@ -276,5 +276,5 @@ Devise.setup do |config|
   # note - if the below line is uncommented, users can't login with email.
   # further work needs to be done on the login view to fix this, but for now, 
   # login can happen with just email.
-  # config.authentication_keys = [ :login ]
+  config.authentication_keys = [ :login ]
 end
