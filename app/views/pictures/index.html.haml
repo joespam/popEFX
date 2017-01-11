@@ -1,53 +1,6 @@
 .container
-	.row.center.landingPad
-		%form.navbar-form{ :role => "search"}
-			.input-group.add-on
-				%input.form-control#srch-term{ :placeholder => "Search", :name => "srch-term", :type => "text" }
-				.input-group-btn
-					%button.btn.btn-default{ :type => "submit" }
-						%i.glyphicon.glyphicon-search
-		%p.landingTextColor
-			What are you looking for?
-
-	.row.landingPad
-		.col-md-6
-			#pictures.transitions-enabled
-				- @pictures.each do |pic|
-					.box
-						= link_to (image_tag pic.image.url(:small)), pic
-		.col-md-6
-			.categoryColumn
-				%p.landingTextColor
-					popEFX is an artist community by artists for artists and clients of every kind. Join today!
-				.lpageHeading
-					ARTISTS
-				%p.landingTextColor
-					Earn what you deserve. Join the world's best marketplace that celebrates artists
-				- if !user_signed_in?
-					%p.landingBtn
-						= link_to "Join as Contributor", new_user_registration_path, :id => "landingBtn" 
-				.lpageHeading
-					CLIENTS
-				%p.landingTextColor
-					Assets available for every price range. Not the same old pictures and illustrations. See new artists.
-				- if !user_signed_in?
-					%p.landingBtn
-						= link_to "Join to Purchase", new_user_registration_path, :id => "landingBtn" 
-	.row.landingPad.landingPad
-		.container-fluid.featured
-			%p.landingTextColor
-				Artist of the Month: 
-				= link_to @artMonth.username, "/users/#{@artMonth.id}", :class => "landingLink"
-			.row
-				.featuredTile
-					= link_to (image_tag @featPix.image.url(:medium)), @featPix
-			.row
-				- @artMonthStuff.each do |thing|
-					.col-md-3
-						.featuredTile
-							= link_to (image_tag thing.image.url(:small)), thing
-			%p.pull-right.landingTextColor
-				= link_to "see more", @artMonth, :class => "landingLink"
-	.row
-		%h1.center.collectionsLink.landingPad
-			View Collections
+	.col-md-12
+		.gallery
+			- @pictures.each do |pic|
+				.box
+					= link_to (image_tag pic.image.url(:medium)), pic

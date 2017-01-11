@@ -22,6 +22,10 @@ class PicturesController < ApplicationController
 
 	def index
 		@pictures = Picture.all.order("RANDOM()")
+	end
+
+	def landing
+		@pictures = Picture.all.order("RANDOM()")
 		@artMonth = User.first
 
 		# information for featured artist

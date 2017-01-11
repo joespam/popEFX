@@ -61,6 +61,15 @@ body {
 	margin: 3px;
 }
 
+.gallery {
+	margin: 3px;
+	.box {
+		padding: 0px;
+		border-radius: 0px;
+		background: white;
+	}
+}
+
 .tagline {
 	font-size: 2em;
 	margin-right: 2em;
@@ -168,15 +177,13 @@ body {
 	padding: 10px;
 }
 
-.image-frame {
+.imageFrame {
 	padding: 5px;
-	// margin: 0 2% 2% 0;
-	img {
-		width: 95%;
-	}
+	background-color: white;
+	border: none;
 }
 
-.image-tile-wrapper {
+.imageTileWrapper {
 	width: 30%;
 	margin: 0 2% 2% 0;
 	float: left;
