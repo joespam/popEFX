@@ -12,6 +12,13 @@
  *
  *= require_tree .
  *= require_self
+ *= require 'masonry/basic'
+ *= require 'masonry/centered'
+ *= require 'masonry/fluid'
+ *= require 'masonry/gutters'
+ *= require 'masonry/infinitescroll'
+ *= require 'masonry/right-to-left'
+ *= require 'masonry/transitions'
  */
 
 @import "bootstrap-sprockets";
@@ -22,48 +29,141 @@
 */
 
 body {
-	background-color: black;
+	// background-color: black;
 	color: rgb(63,168,161);
-	font-family: callista-lite;
+	font-family: calibri;
 	a {
 		color: rgb(63,168,161);
 	}
 }
 
+.headgrad {
+	border: none;
+	border-radius: 0px;
+	background: red; /* For browsers that do not support gradients */
+	background: -webkit-linear-gradient(black, rgb(63,168,161)); /* For Safari 5.1 to 6.0 */
+	background: -o-linear-gradient(black, rgb(63,168,161)); /* For Opera 11.1 to 12.0 */
+	background: -moz-linear-gradient(black, rgb(63,168,161)); /* For Firefox 3.6 to 15 */
+	background: linear-gradient(black, rgb(63,168,161)); /* Standard syntax */
+}
+
 .maintheme {
-	background-color: black;
+	font-family: calibri;
+	background-color: white;
+	font-size: 2em;
 }
 
 .maintheme-link ul li a {
 	color: rgb(63,168,161);	
 }
 
-.navbarStack {
-	height: 18px !important;
-}
-
 .categoryColumn {
 	margin: 3px;
 }
 
-.navbar-toprow {
-	font-size: 12pt;
-	margin-top: 50px;
-	margin-left: 75px;
-	padding-left: 75px;
+.tagline {
+	font-size: 2em;
+	margin-right: 2em;
+	padding-top: 65px;
+	color: purple;
 }
 
-.navbar-row2 {
-	font-size: 8pt;
-	margin-top: 5px;
-	margin-left: 75px;
-	padding-left: 75px;
+.secondaryNav {
+	width: 100%;
+	height: 1em !important;	
+	font-size: 2em;
+	a {
+		color: purple;
+	}
 }
 
-.page-heading {
-	font-size: 12pt;
+// landing page styles
+
+#srch-term {
+	width: 40em;
+}
+
+.landingBtn {
+	color: purple;
+	background: rgb(63,168,161);
+	width: 100%;
+	padding: 0 3em;
+	margin: 2px;
+	text-align: center;
+	a {
+		color: purple;
+		text-decoration: none;
+	}
+}
+
+.landingLink {
+	color: purple;
+	a {
+		color: purple;
+		text-decoration: none;
+	}	
+}
+
+.landingPad {
+	padding-top: 50px;
+}
+
+.collectionsLink {
+	a {
+		text-decoration: none;
+	}		
+}
+
+// #landingMosaic {
+#pictures {
+	margin: 0 auto;
+	width: 100%;
+	.box {
+		margin: 2px;
+		width: 175px;
+		padding: 0px;
+		border-radius: 0px;
+		background: white;
+		img {
+			max-width: 100%;
+			height: auto;
+		}
+	}
+}
+
+.landingTextColor {
+	color: purple;
+}
+
+// center search form
+.center {
+	margin: 0 auto;
+	width: 100%;
+	text-align: center;
+}
+
+// landing page search button box
+.add-on .input-group-btn > .btn {
+	border-left-width:0;left:-2px;
+	-webkit-box-shadow: inset 0 1px 5px rgba(0, 0, 0, 0.075);
+	box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+}
+
+/* stop the glowing blue shadow */
+.add-on .form-control:focus {
+	box-shadow:none;
+	-webkit-box-shadow:none; 
+	border-color:#cccccc; 
+}
+
+#srch_group{
+	// width: 60%;
+}
+
+.lpageHeading {
+	font-size: 1.5em;
 	font-style: bold;
-	color: white;
+	color: purple;
 	text-align: center;
 	padding: 10px;
 }
@@ -80,8 +180,8 @@ body {
 	width: 30%;
 	margin: 0 2% 2% 0;
 	float: left;
-	border: 1px solid black;
-	background-color: black;
+	border: 1px solid white;
+	background-color: white;
 }
 
 .gallery .image-tile {
@@ -115,9 +215,39 @@ body {
 	color: rgb(63,168,161);
 }
 
+.featured {
+	outline: solid 1px;
+	padding: 5px;
+	margin: 10px;
+}
+
+.featuredTile {
+	width: 100%;
+	height: 100%;
+	padding: 10px;
+	margin: 10px;
+}
+
+.navFoot {
+	margin-top: 50px;
+	border: none;
+	background-color: rgb(63,168,161);
+	color: white;
+	a {
+		color: white;
+	}
+	a:hover {
+		color: purple;
+	}
+}
+
+.copyright {
+	padding-right: 50px;
+}
+
 .btn {
-	padding: 14px 24px;
-	border: 0 none;
+	// padding: 14px 24px;
+	// border: 0 none;
 	font-weight: 700;
 	letter-spacing: 1px;
 	text-transform: uppercase;
@@ -155,3 +285,14 @@ body {
 // 	box-shadow: none;
 // }
 
+.profilePagePadding {
+	padding-left: 50px;
+}
+
+.user-avatar {
+	float: left;
+}
+
+.user-profile {
+	float: right;
+}

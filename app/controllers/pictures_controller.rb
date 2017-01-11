@@ -21,7 +21,16 @@ class PicturesController < ApplicationController
 	end
 
 	def index
-		@pictures = Picture.all.order("created_at DESC")
+		@pictures = Picture.all.order("RANDOM()")
+		@artMonth = User.first
+
+		# information for featured artist
+		# currently we need a system for designating that artist
+		# right now its just the first user
+		#
+		fivePix = Picture.where(:user_id => @artMonth.id).limit(5)
+		@featPix = fivePix[0]
+		@artMonthStuff = [fivePix[1], fivePix[2], fivePix[3], fivePix[4]]
 	end
 
 	def new

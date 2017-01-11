@@ -1,0 +1,53 @@
+.container
+	#Images
+	.col-md-3
+		.categoryColumn
+			.page-heading
+				Most Viewed Images
+			- @pictures.each do |pic|
+				.image-frame
+					= link_to (image_tag pic.image.url(:medium)), pic
+
+	#Videos
+	.col-md-3
+		.categoryColumn
+			.page-heading
+				Most Viewed Videos
+			- @pictures.each do |pic|   
+				.image-frame   
+					= link_to (image_tag pic.image.url(:medium)), pic
+
+	#Code
+	.col-md-3
+		.categoryColumn
+			.page-heading
+				Most Viewed Code
+			- @pictures.each do |pic|   
+				.image-frame   
+					= link_to (image_tag pic.image.url(:medium)), pic
+
+	#Animation
+	.col-md-3
+		.categoryColumn
+			.page-heading
+				Most Viewed Animations
+			- @pictures.each do |pic|   
+				.image-frame
+					= link_to (image_tag pic.image.url(:medium)), pic
+
+%form.navbar-form{ :role => "search"}
+   .input-group.add-on
+      %input.form-control#srch-term{ :placeholder => "Search", :name => "srch-term", :type => "text" }
+      .input-group-btn
+	      button.btn.btn-default{ :type => "submit" }
+	      	%i.glyphicon.glyphicon-search
+
+					=link_to icon("glyphicon-play"), clue_path(@question), {class: "btn btn-lg", :type => "submit"}
+
+
+	.row
+		.col-md-12
+			.categoryColumn#landingMosaic
+				- @pictures.each do |pic|
+					.panel.panel-default
+						= link_to (image_tag pic.image.url(:thumb)), pic

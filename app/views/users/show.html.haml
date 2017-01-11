@@ -1,8 +1,15 @@
 %h1 User Profile Page
 
-%h1= @profile.brandname
-%h2= @user.username
-%div
-	%h2 Level:
-	%h2= @profile.level
-%h3= @profile.description
+.col-md-3
+	= image_tag @profile.avatar.url(:medium)
+.col-md-9.profilePagePadding
+	%h1= @profile.brandname
+	%h2
+		= @user.username
+
+	%h3= @profile.description
+	%div
+		%h2 
+			Level: 
+			= @profile.level
+
