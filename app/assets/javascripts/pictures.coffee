@@ -2,9 +2,16 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
-->
+$ ->
 	$('#pictures').imagesLoaded ->
 		$('#pictures').masonry
 			itemSelector: '.box'
-			isAnimated: !Modernizr.csstransitions
+			isAnimated: true
+			isFitWidth: true
+
+$ ->
+	$('#picGallery').imagesLoaded ->
+		$('#picGallery').masonry
+			itemSelector: '.picTile'
+			isAnimated: true
 			isFitWidth: true

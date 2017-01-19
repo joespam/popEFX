@@ -1,17 +1,16 @@
 .container
 	.row.center.landingPad
+		%p.landingTextColor
+			What are you looking for?
 		%form.navbar-form{ :role => "search"}
 			.input-group.add-on
-				%input.form-control#srch-term{ :placeholder => "Search", :name => "srch-term", :type => "text" }
+				%input.form-control#srch-term{ :placeholder => "Enter Keywords: eg, blue kitten", :name => "srch-term", :type => "text" }
 				.input-group-btn
 					%button.btn.btn-default{ :type => "submit" }
 						%i.glyphicon.glyphicon-search
-		%p.landingTextColor
-			What are you looking for?
-
 	.row.landingPad
 		.col-md-6
-			#pictures.transitions-enabled
+			#pictures.transitions-enabled.infinite-scroll
 				- @pictures.each do |pic|
 					.box
 						= link_to (image_tag pic.image.url(:small)), pic
@@ -22,7 +21,7 @@
 				.lpageHeading
 					ARTISTS
 				%p.landingTextColor
-					Earn what you deserve. Join the world's best marketplace that celebrates artists
+					Earn what you deserve. Join the world's best marketplace that celebrates artists.
 				- if !user_signed_in?
 					%p.landingBtn
 						= link_to "Join as Contributor", new_user_registration_path, :id => "landingBtn" 
@@ -33,21 +32,25 @@
 				- if !user_signed_in?
 					%p.landingBtn
 						= link_to "Join to Purchase", new_user_registration_path, :id => "landingBtn" 
-	.row.landingPad.landingPad
+	.row.landingPad
 		.container-fluid.featured
 			%p.landingTextColor
 				Artist of the Month: 
 				= link_to @artMonth.username, "/users/#{@artMonth.id}", :class => "landingLink"
 			.row
-				.featuredTile
+				.featuredTile#featuredPrime
 					= link_to (image_tag @featPix.image.url(:medium)), @featPix
 			.row
-				- @artMonthStuff.each do |thing|
+				- @artMonthStuff.each_with_index do |thing, i|
 					.col-md-3
-						.featuredTile
-							= link_to (image_tag thing.image.url(:small)), thing
+						.featuredTile{:id => "featTile#{i}"}
+							= link_to (image_tag thing.image.url(:medium)), thing
+							:javascript
+								featureFit("featTile" + "#{i}", "#{thing.image.url(:medium)}");
 			%p.pull-right.landingTextColor
 				= link_to "see more", @artMonth, :class => "landingLink"
 	.row
 		%h1.center.collectionsLink.landingPad
 			View Collections
+
+

@@ -19,7 +19,7 @@ gem 'simple_form', '~> 3.3', '>= 3.3.1'
 gem 'devise', '~> 4.2'
 gem 'paperclip', '~> 5.1'
 gem 'paperclip-watermark', '~> 1.0'
-gem 'masonry-rails'
+gem 'masonry-rails', '~> 0.2.4'
 
 group :development, :test do
   gem 'byebug'

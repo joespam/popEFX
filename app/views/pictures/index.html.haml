@@ -1,6 +1,6 @@
 .container
 	.col-md-12
-		.gallery
+		#picGallery.transitions-enabled.infinite-scroll
 			- @pictures.each do |pic|
-				.box
+				.picTile
 					= link_to (image_tag pic.image.url(:medium)), pic

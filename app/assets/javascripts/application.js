@@ -12,8 +12,30 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require masonry/jquery.masonry
 //= require bootstrap-sprockets
 //= require turbolinks
+//= require masonry/jquery.masonry
 //= require_tree .
 
+// 
+//  featureFit
+//		given element id <name> and an img <img>, set the backgraound css 
+//		properties of name to img 
+//
+function featureFit(name,img) {
+
+	// $(document).ready( function() {
+	// 	$('body').addClass( 'test' );
+	// 	alert(name);
+	// } );
+
+	$('#' + name).css({
+		"background-image":'img',
+	});
+
+	// $('#' + name).css({
+	// 	"background-image":'url(img)',
+	// 	"background-position":"center",
+	// 	"background-size":"cover"
+	// });
+}

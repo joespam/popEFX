@@ -1,15 +1,34 @@
-%h1 User Profile Page
 
+.row
+	.placeholderBlock
 .col-md-3
 	= image_tag @profile.avatar.url(:medium)
+	%ul.profileMenu
+		%li= image_tag 'proficons.png'
+		%li= link_to "Read Reviews", "#"
+		= image_tag "staricons.png"
+		- if user_signed_in? && current_user != @user
+			%li= link_to "Message this Artist", "#"
+		%li= link_to "Set Keyword Alerts", "#"
+		%li= link_to "Set Banking Information", "#"
+		%li= link_to "Account Settings", "#"
+		%li= link_to "Manage Reviews", "#"
+
 .col-md-9.profilePagePadding
 	%h1= @profile.brandname
-	%h2
-		= @user.username
 
 	%h3= @profile.description
-	%div
-		%h2 
-			Level: 
-			= @profile.level
+-#	%div
+-#		%h2 
+-#			Level: 
+-#			= @profile.level
 
+%h3 Free Images
+.col-md-12.freePix
+-#	- @userPix.each do |pic|
+-#		.featuredTile
+-#			= link_to (image_tag pic.image.url(:small)), pic		
+-#.row
+-#	- @userPix.each do |pic|
+-#		.image-frame
+-#			= link_to (image_tag pic.image.url(:medium)), pic

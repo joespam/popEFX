@@ -8,6 +8,9 @@ class UsersController < ApplicationController
 	end
 
 	def show
+		@pics = @user.pictures()
+		@freePix = @pics[0..4]
+		@userPix = @pics.drop(4)
 	end
 
 	def update
