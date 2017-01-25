@@ -14,7 +14,7 @@
 						%li= link_to "Referral Program", "#"
 				.col-md-4
 					%ul.nav
-						%li= link_to "Social Media Block", "#"
+						%li= render 'layouts/socialMediaBlock'
 						- if user_signed_in?
 							%li= link_to "Profile", user_registration_path(:id => current_user)
 							%li= link_to "Account Settings", edit_user_registration_path 

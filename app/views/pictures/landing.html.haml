@@ -33,24 +33,25 @@
 					%p.landingBtn
 						= link_to "Join to Purchase", new_user_registration_path, :id => "landingBtn" 
 	.row.landingPad
-		.container-fluid.featured
+		.container-fluid#featured
 			%p.landingTextColor
 				Artist of the Month: 
 				= link_to @artMonth.username, "/users/#{@artMonth.id}", :class => "landingLink"
 			.row
-				.featuredTile#featuredPrime
-					= link_to (image_tag @featPix.image.url(:medium)), @featPix
+				= link_to @featPix do
+					.featuredTile#featuredPrime
+						:javascript
+							featureFit("featuredPrime", "#{@featPix.image.url}", 1);
 			.row
 				- @artMonthStuff.each_with_index do |thing, i|
 					.col-md-3
-						.featuredTile{:id => "featTile#{i}"}
-							= link_to (image_tag thing.image.url(:medium)), thing
-							:javascript
-								featureFit("featTile" + "#{i}", "#{thing.image.url(:medium)}");
+						= link_to thing do
+							.featuredTile{:id => "featTile#{i}"}
+								:javascript
+									featureFit("featTile" + "#{i}", "#{thing.image.url(:medium)}", 4);
 			%p.pull-right.landingTextColor
 				= link_to "see more", @artMonth, :class => "landingLink"
 	.row
 		%h1.center.collectionsLink.landingPad
 			View Collections
-
 

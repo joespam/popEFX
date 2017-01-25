@@ -19,6 +19,7 @@
  *= require 'masonry/infinitescroll'
  *= require 'masonry/right-to-left'
  *= require 'masonry/transitions'
+ *= require font-awesome
  */
 
 @import "bootstrap-sprockets";
@@ -36,6 +37,10 @@ body {
 		color: rgb(63,168,161);
 	}
 }
+
+/*
+	header gradient
+ */
 
 .headgrad {
 	border: none;
@@ -91,14 +96,15 @@ body {
 	}
 }
 
-.fuckhole {
+.catNav {
 	border:1px solid white;
 	border-width:1px 0;
 	list-style:none;
 	height: 1em !important;	
 	font-size: 2em;
 	text-align: center;
-	margin-bottom: 50px;
+	// margin-bottom: 50px;
+	margin-top: -25px;
 	a {
 		color: purple;
 		display:inline-block;
@@ -140,7 +146,7 @@ body {
 }
 
 .landingPad {
-	padding-top: 50px;
+	padding-top: 20px;
 }
 
 .collectionsLink {
@@ -251,7 +257,7 @@ body {
 	color: rgb(63,168,161);
 }
 
-.featured {
+#featured {
 	outline: solid 1px;
 	padding: 5px;
 	margin: 10px;
@@ -261,7 +267,7 @@ body {
 	width: 100%;
 	height: 100%;
 	padding: 10px;
-	margin: 10px;
+	margin: 20px;
 }
 
 .navFoot {
@@ -305,21 +311,112 @@ body {
 	box-shadow: 0 3px 0 0 #ffffff;
 }
 
-// .btn-primary:hover, .btn-primary:focus, .open > .dropdown-toggle.btn-primary {
-// 	background: #33a6cc;
-// }
+/*
+	social media block
+ */
+ ._14 {
+    font-size: 1.4em;
+}
 
-// .btn-primary.raised:active, .btn-primary.raised.active {
-// 	background: #33a6cc;
-// 	box-shadow: none;
-// 	margin-bottom: -3px;
-// 	margin-top: 3px;
-// }
+.footer-social-icons {
+    width: 350px;
+    display:block;
+    margin: 0 auto;
+}
+.social-icon {
+    color: #fff;
+}
+.social-icons {
+	padding-left: 15px;
+	ul {
+		margin-top: 10px;
+		// padding: 0px;
+		list-style: none;
+	}
+	li {
+		vertical-align: top;
+		display: inline;
+		height: 100px;
+	}
+	a {
+		color: #fff;
+		text-decoration: none;
+	}
+}
+.fa-facebook {
+    padding:10px 14px;
+    -o-transition:.5s;
+    -ms-transition:.5s;
+    -moz-transition:.5s;
+    -webkit-transition:.5s;
+    transition: .5s;
+    background-color: rgb(63,168,161);
+}
+.fa-facebook:hover {
+    background-color: #3d5b99;
+}
+.fa-twitter {
+    padding:10px 12px;
+    -o-transition:.5s;
+    -ms-transition:.5s;
+    -moz-transition:.5s;
+    -webkit-transition:.5s;
+    transition: .5s;
+    background-color: rgb(63,168,161);
+}
+.fa-twitter:hover {
+    background-color: #00aced;
+}
+.fa-rss {
+    padding:10px 14px;
+    -o-transition:.5s;
+    -ms-transition:.5s;
+    -moz-transition:.5s;
+    -webkit-transition:.5s;
+    transition: .5s;
+    background-color: rgb(63,168,161);
+}
+.fa-rss:hover {
+    background-color: #eb8231;
+}
+.fa-youtube {
+    padding:10px 14px;
+    -o-transition:.5s;
+    -ms-transition:.5s;
+    -moz-transition:.5s;
+    -webkit-transition:.5s;
+    transition: .5s;
+    background-color: rgb(63,168,161);
+}
+.fa-youtube:hover {
+    background-color: #e64a41;
+}
+.fa-linkedin {
+    padding:10px 14px;
+    -o-transition:.5s;
+    -ms-transition:.5s;
+    -moz-transition:.5s;
+    -webkit-transition:.5s;
+    transition: .5s;
+    background-color: rgb(63,168,161);
+}
+.fa-linkedin:hover {
+    background-color: #0073a4;
+}
+.fa-google-plus {
+    padding:10px 9px;
+    -o-transition:.5s;
+    -ms-transition:.5s;
+    -moz-transition:.5s;
+    -webkit-transition:.5s;
+    transition: .5s;
+    background-color: rgb(63,168,161);
+}
+.fa-google-plus:hover {
+    background-color: #e25714;
+}
 
-// .btn-primary:active, .btn-primary.active {
-// 	background: #007299;
-// 	box-shadow: none;
-// }
+/////////////////////  end social media block ////////////////////
 
 .profilePagePadding {
 	padding-left: 50px;
