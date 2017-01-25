@@ -79,6 +79,19 @@ body {
 	}
 }
 
+#signupColGal {
+	overflow-y: scroll;
+	.picTile {
+		padding: 3px;
+		border-radius: 0px;
+		background: white;
+		img {
+			width: 100%;
+			max-width: 100%;
+		}
+	}
+}
+
 .tagline {
 	font-size: 2em;
 	margin-right: 2em;

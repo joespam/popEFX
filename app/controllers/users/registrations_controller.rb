@@ -18,10 +18,22 @@ class Users::RegistrationsController < Devise::RegistrationsController
 			u = User.last
 			p = Profile.last
 			u.profile_id = p.id
-			# all users default to level 0
-			p.level = 0
+			# all users default to level 1
+			p.level = 1
 			p.save
 			u.save
 		end
+	end
+
+	def new
+		# take the lesser of total pictures and 100 and put
+		# half that number of pictures in each picture display
+		# array without duplicating pictures.
+		#
+		totalPix = Picture.count > 100 ? 100 : Picture.count
+
+		@displayPix = Picture.limit(totalPix).order("RANDOM()")
+		puts "================ #{totalPix} ===================================="
+		super
 	end
 end
