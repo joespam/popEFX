@@ -16,6 +16,9 @@ class User < ActiveRecord::Base
 
 	validate :validate_username
 
+	# additional attrs for UI processing
+	attr_accessor :artist
+
 	def validate_username
 		if User.where(email: username).exists?
 			errors.add(:username, :invalid)

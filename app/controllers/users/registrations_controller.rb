@@ -32,8 +32,17 @@ class Users::RegistrationsController < Devise::RegistrationsController
 		#
 		totalPix = Picture.count > 100 ? 100 : Picture.count
 
-		@displayPix = Picture.limit(totalPix).order("RANDOM()")
-		puts "================ #{totalPix} ===================================="
+		displayPix = Picture.limit(totalPix).order("RANDOM()")
+		@displayPixH = [];
+		@displayPixV = [];
+
+		if ( totalPix%2 == 0 ) 
+			@displayPixH = displayPix[0..(totalPix/2)-1]
+			@displayPixV = displayPix[totalPix/2..totalPix-1]
+		else
+			@displayPixH = displayPix[0..(totalPix-1)/2]
+			@displayPixV = displayPix[(totalPix-1)/2 + 1..totalPix-1]
+		end
 		super
 	end
 end

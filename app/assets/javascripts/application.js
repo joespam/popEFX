@@ -35,7 +35,7 @@ function featureFit(name,img, perRow) {
 
 	// smallest featured tile has width = 1/4 of featured's and height 1/4
 	var tileWidth = parseInt(featWidth/perRow) - padding * 2;
-	var tileHeight = tileWidth * .60; 
+	var tileHeight = tileWidth * .45; 
 	// if (perRow === 1) {
 	// 	tileHeight = tileWidth * 4;
 	// } else {

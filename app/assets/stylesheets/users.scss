@@ -2,10 +2,57 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.signupTop {
+	margin: 20px;
+}
+
 .bg {
 	background-color: rgb(63,168,161);
 }
 
 .tc {
 	color: white;
+}
+
+.signupForm {
+	// width: 70%;
+	// float: right;
+	border-radius: 5px;
+}
+
+// .flowGal {
+// 	float: left;
+// 	width: 80%;
+// }
+
+#signupGalV {
+	margin: 0 auto;
+	width: 100%;
+	overflow-y: scroll;
+	.picTile {
+		padding: 3px;
+		border-radius: 0px;
+		background: white;
+		display: inline;
+		img {
+			width: 100%;
+			max-width: 100%;
+		}
+	}
+}
+
+#signupGalH {
+	margin: 0 auto;
+	// width: 100%;
+	overflow-x: scroll;
+	.picTile {
+		padding: 3px;
+		border-radius: 0px;
+		background: white;
+		display: inline;
+		img {
+			height: 100%;
+			max-height: 100%;
+		}
+	}
 }
