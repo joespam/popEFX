@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
 
-	before_action :find_user, only: [:show]
-	before_action :find_profile, only: [:show]
+	before_action :find_user, only: [:show,:update]
+	before_action :find_profile, only: [:show,:update]
 
 	def index
 		@users = User.all.order("created_at DESC")
@@ -10,12 +10,13 @@ class UsersController < ApplicationController
 	def show
 		@pics = @user.pictures()
 		@freePix = @pics[0..4]
-		@userPix = @pics.drop(4)
+		@userPix = @pics.drop(5)
 	end
 
 	def update
-		if @picture.update(picture_params)
-			redirect_to @picture, notice: "Image was successfully updated"
+
+		if @user.update(user_params)
+			redirect_to @user, notice: "Profile successfully updated"
 		else
 			render "edit"
 		end
@@ -23,7 +24,12 @@ class UsersController < ApplicationController
 
 private
 	def picture_params
-		params.require(:picture).permit(:title, :description, :image, :profile_id)
+		# params.require(:picture).permit(:title, :description, :image, :profile_id)
+		params.require(:picture).permit(:title, :description, :image)
+	end
+
+	def user_params
+		params.require(:user).permit(:email, :username, profile_attributes: [:id, :brandname, :avatar, :description])
 	end
 
 	def find_user

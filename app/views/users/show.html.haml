@@ -15,20 +15,22 @@
 		%li= link_to "Manage Reviews", "#"
 
 .col-md-9.profilePagePadding
-	%h1= @profile.brandname
+	%span
+		%h1.profileBrandLevel
+			= @profile.brandname
+		.lvl.lvlc4.profileBrandLevel
+			= @profile.level
 
 	%h3= @profile.description
--#	%div
--#		%h2 
--#			Level: 
--#			= @profile.level
 
-%h3 Free Images
-.col-md-12.freePix
--#	- @userPix.each do |pic|
--#		.featuredTile
--#			= link_to (image_tag pic.image.url(:small)), pic		
--#.row
--#	- @userPix.each do |pic|
--#		.image-frame
--#			= link_to (image_tag pic.image.url(:medium)), pic
+	%h3 Free Images
+	.row
+		- @freePix.each do |pic|
+			.col-md-5ths.col-xs_6
+				.featuredTile
+					= link_to (image_tag pic.image.url(:small)), pic
+	.row
+		#signupGal
+			- @userPix.each do |pic|
+				.imageFrame
+					= link_to (image_tag pic.image.url(:medium)), pic

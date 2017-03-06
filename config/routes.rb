@@ -5,7 +5,7 @@ Rails.application.routes.draw do
 
 	# custom routes for users
 	get '/users/:id/' => 'users#show', :as => :user
-	get '/users/' => 'users#show', :as => :all_users
+	get '/users/' => 'users#index', :as => :all_users
 
 	# custom route for landing page
 	get '/home' => 'pictures#landing', :as => :home

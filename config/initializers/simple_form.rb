@@ -162,4 +162,7 @@ SimpleForm.setup do |config|
 
   # Defines which i18n scope will be used in Simple Form.
   # config.i18n_scope = 'simple_form'
+
+  # config/initializers/simple_form.rb
+  # you can add all other "use" in the config, this is just the main wrapper needed to make inline label inputs
 end

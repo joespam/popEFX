@@ -5,6 +5,8 @@ class PicturesController < ApplicationController
 	def create
 		@picture = current_user.pictures.build(picture_params)
 
+		keywords = picture_params
+
 		if @picture.save
 			redirect_to @picture, notice: "Successfully Created new Image"
 		else
@@ -32,9 +34,13 @@ class PicturesController < ApplicationController
 		# currently we need a system for designating that artist
 		# right now its just the first user
 		#
-		fivePix = Picture.where(:user_id => @artMonth.id).limit(5)
-		@featPix = fivePix[0]
-		@artMonthStuff = [fivePix[1], fivePix[2], fivePix[3], fivePix[4]]
+		if @artMonth.present?
+			fivePix = Picture.where(:user_id => @artMonth.id).limit(5) 
+			if (fivePix.length > 0)
+				@featPix = fivePix[0]
+				@artMonthStuff = [fivePix[1], fivePix[2], fivePix[3], fivePix[4]]
+			end
+		end
 	end
 
 	def new
@@ -54,7 +60,7 @@ class PicturesController < ApplicationController
 
 private
 	def picture_params
-		params.require(:picture).permit(:title, :description, :image)
+		params.require(:picture).permit(:title, :description, :image, :keywords)
 	end
 
 	def find_picture

@@ -4,8 +4,11 @@
 
 $ ->
 	$('#signupGal').imagesLoaded ->
-		$('#signupGal').masonry
-			itemSelector: '.picTile'
-			stamp: '.signupForm'
+		$gallery = $('#signupGal')
+		$gallery.masonry
 			isAnimated: true
 			isFitWidth: true
+			itemSelector: '.picTile'
+			stamp: '.signupForm'
+			
+

@@ -5,6 +5,7 @@ class ProfilesController < ApplicationController
 	end
 
 	def update
+
 		user = User.find_by_id params[:user_id]
 		profile = user.profile
 
@@ -19,6 +20,6 @@ class ProfilesController < ApplicationController
 
 	private
 	def profile_params
-		params.require(:profile).permit(:brandname, :avatar, :description)
+		params.require(:profile).permit(:brandname, :avatar, :description, :level)
 	end
 end

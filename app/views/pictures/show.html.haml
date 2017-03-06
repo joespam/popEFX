@@ -3,7 +3,7 @@
 %p= @picture.description
 %p
 Submitted by
-= link_to @picture.user.username, @picture.user
+= link_to Profile.find_by(user_id: @picture.user.id).brandname, @picture.user
 %br
 = link_to "Back", root_path
 = link_to "Edit", edit_picture_path

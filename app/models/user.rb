@@ -4,9 +4,10 @@ class User < ActiveRecord::Base
 	devise :database_authenticatable, :registerable,
 	      :recoverable, :rememberable, :trackable, :validatable
 
-	has_many :pictures
-	has_one :profile
-	accepts_nested_attributes_for :profile
+	has_many :pictures, dependent: :destroy
+	has_one :profile, dependent: :destroy
+	accepts_nested_attributes_for :pictures, :allow_destroy => true
+	accepts_nested_attributes_for :profile, :allow_destroy => true
 
 	validates :username,
 	  :presence => false,
@@ -17,7 +18,22 @@ class User < ActiveRecord::Base
 	validate :validate_username
 
 	# additional attrs for UI processing
+	#
 	attr_accessor :artist
+	# at signup time, a user can upload up to 5 pictures
+	# these will get added to the database at signup time
+	#
+	attr_accessor :pictures[5]
+	serialize :pictures, Array
+
+	# currently adding an array of pictures is not working.
+	# hardcoding five separate possible pictures instead.
+	#
+	attr_accessor :picture1
+	attr_accessor :picture2
+	attr_accessor :picture3
+	attr_accessor :picture4
+	attr_accessor :picture5
 
 	def validate_username
 		if User.where(email: username).exists?

@@ -18,6 +18,3 @@
 
 # ignore all images stored in the database
 /public/system/*
-
-#ignore some scratch files
-/app/views/users/registrations/new2.html.haml

@@ -15,3 +15,4 @@ $ ->
 			itemSelector: '.picTile'
 			isAnimated: true
 			isFitWidth: true
+			
