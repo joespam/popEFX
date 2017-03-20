@@ -6,4 +6,7 @@ class Picture < ActiveRecord::Base
 
 	has_many :keywords
 
+	# additional attr for keywords, which are a separate table
+	#
+	attr_accessor :keywords
 end

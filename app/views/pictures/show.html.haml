@@ -1,9 +1,14 @@
 %h2= @picture.title
-= image_tag @picture.image.url(:medium)
+= image_tag @picture.image.url()
 %p= @picture.description
+- if @keywords.count > 0
+	%p 
+		Keywords: 
+		- @keywords.each do |kw|
+			= " #{kw.word} "
 %p
-Submitted by
-= link_to Profile.find_by(user_id: @picture.user.id).brandname, @picture.user
+	Submitted by
+	= link_to Profile.find_by(user_id: @picture.user.id).brandname, @picture.user
 %br
 = link_to "Back", root_path
 = link_to "Edit", edit_picture_path
