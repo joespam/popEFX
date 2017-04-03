@@ -18,6 +18,6 @@
 		= f.input :description, input_html: { class: 'form-control' }
 
 	.form-group
-		= f.input :keywords, input_html: { class: 'form-control', as: :textarea }
+		= f.input :keywords, input_html: { class: 'form-control', as: :textarea, :placeholder => @keywordString }
 
 	= f.button :submit, class: "btn btn-primary"

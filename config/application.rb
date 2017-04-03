@@ -22,5 +22,11 @@ module PopEFX
 
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
+
+    config.before_initialize do
+        # setup the Searchkick client
+        #
+        Searchkick.client = Elasticsearch::Client.new(hosts: ["localhost:9200"], retry_on_failure: true, transport_options: {request: {timeout: 250}})
+    end
   end
 end

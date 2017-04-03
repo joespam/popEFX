@@ -1,6 +1,19 @@
 .container.signupTop
-	.col-md-12
-		#picGallery.transitions-enabled.infinite-scroll
-			- @pictures.each do |pic|
-				.picTile
-					= link_to (image_tag pic.image.url(:medium)), pic
+	.row.center
+		%form.navbar-form{ :role => "search"}
+		= form_tag root_path, class: "form-inline", method: :get do
+			.input-group.input-group-lg
+				- if params[:srchterm].present?
+					.input-group-btn
+						= link_to "clear", root_path, class: "btn btn-default"
+				= text_field_tag :srchterm, params[:srchterm], class: "form-control", id: "srchterm", autocomplete: "on", :placeholder => "Enter Keywords: eg, blue kitten"
+				.input-group-btn
+					%button.btn.btn-primary{ :type => "submit"}
+						%i.glyphicon.glyphicon-search
+	.row
+		.picGalleryContainer
+			.col-md-12
+				#picGallery.transitions-enabled.infinite-scroll
+					- @pictures.each do |pic|
+						.picTile
+							= link_to (image_tag pic.image.url(:medium)), pic

@@ -1,15 +1,34 @@
-%h2= @picture.title
-= image_tag @picture.image.url()
-%p= @picture.description
-- if @keywords.count > 0
-	%p 
-		Keywords: 
-		- @keywords.each do |kw|
-			= " #{kw.word} "
-%p
-	Submitted by
-	= link_to Profile.find_by(user_id: @picture.user.id).brandname, @picture.user
-%br
-= link_to "Back", root_path
-= link_to "Edit", edit_picture_path
-= link_to "Delete", picture_path, method: :delete, data: { confirm: "Are you sure?" }
+.row.center
+	%form.navbar-form{ :role => "search"}
+	= form_tag root_path, class: "form-inline", method: :get do
+		.input-group.input-group-lg
+			- if params[:srchterm].present?
+				.input-group-btn
+					= link_to "clear", root_path, class: "btn btn-default"
+			= text_field_tag :srchterm, params[:srchterm], class: "form-control", id: "srchterm", autocomplete: "on", :placeholder => "Enter Keywords: eg, blue kitten"
+			.input-group-btn
+				%button.btn.btn-primary{ :type => "submit"}
+					%i.glyphicon.glyphicon-search
+.center
+	%h2= @picture.title
+	= image_tag @picture.image.url()
+	%h3
+		Description
+	%p= @picture.description
+	- if @keywords.count > 0
+		.center
+			%h3
+				Keywords:
+			%div
+				- @keywords.each do |kw|
+					.keywrd
+						= "#{kw.word}"
+		.clearfix
+	%h3
+		Submitted by
+	%p
+		= link_to Profile.find_by(user_id: @picture.user.id).brandname, @picture.user
+	%hr
+	= link_to "Back", root_path
+	= link_to "Edit", edit_picture_path
+	= link_to "Delete", picture_path, method: :delete, data: { confirm: "Are you sure?" }

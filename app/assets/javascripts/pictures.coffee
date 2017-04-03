@@ -16,3 +16,7 @@ $ ->
 			isAnimated: true
 			isFitWidth: true
 			
+$ ->
+  $('#srchterm').typeahead
+		name: "picture"
+		remote: "/pictures/autocomplete?query=%QUERY"

@@ -1,3 +1,11 @@
+			.input-group.add-on
+				%input.form-control#srchterm{ :placeholder => "Enter Keywords: eg, blue kitten", :name => "srchterm", :type => "text" }
+				.input-group-btn
+					%button.btn.btn-default{ :type => "submit" }
+						%i.glyphicon.glyphicon-search
+
+
+
 							= link_to (image_tag thing.image.url(:medium)), thing
 
 -#							= link_to (image_tag(thing.image.url(:medium), :size=>"300x300")), thing

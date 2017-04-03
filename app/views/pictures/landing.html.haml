@@ -3,11 +3,16 @@
 		%p.landingTextColor
 			What are you looking for?
 		%form.navbar-form{ :role => "search"}
-			.input-group.add-on
-				%input.form-control#srch-term{ :placeholder => "Enter Keywords: eg, blue kitten", :name => "srch-term", :type => "text" }
-				.input-group-btn
-					%button.btn.btn-default{ :type => "submit" }
-						%i.glyphicon.glyphicon-search
+			= form_tag root_path, class: "form-inline", method: :get do
+				.input-group.input-group-lg
+					- if params[:srchterm].present?
+						.input-group-btn
+							= link_to "clear", root_path, class: "btn btn-default"
+					= text_field_tag :srchterm, params[:srchterm], class: "form-control", id: "srchterm", autocomplete: "on", :placeholder => "Enter Keywords: eg, blue kitten"
+					.input-group-btn
+						%button.btn.btn-primary{ :type => "submit"}
+							%i.glyphicon.glyphicon-search
+
 	.row.landingPad
 		.col-md-6
 			#landingGal
@@ -15,7 +20,7 @@
 					- @pictures.each do |pic|
 						.box
 							= link_to (image_tag pic.image.url(:small)), pic
-		.col-md-6#joinUp
+		.col-md-6
 			.categoryColumn
 				%p.landingTextColor
 					popEFX is an artist community by artists for artists and clients of every kind. Join today!

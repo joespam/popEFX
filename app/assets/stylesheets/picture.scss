@@ -1,3 +1,27 @@
 // Place all the styles related to the Pictures controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.picGalleryContainer {
+	width: 100%;
+	height: 70%;
+	overflow-y: scroll;
+	padding-top: 10px;
+}
+
+#picGallery {
+	// margin: 3px;
+	margin: 0 auto;
+	width: 100%;
+	.picTile {
+		padding: 3px;
+		width: 250px;
+		border-radius: 0px;
+		background: white;
+		img {
+			width: 100%;
+			max-width: 100%;
+		}
+	}
+}
+

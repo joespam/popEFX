@@ -97,26 +97,6 @@ body {
 	overflow-y: scroll;
 }
 
-#joinUp {
-	
-}
-
-#picGallery {
-	// margin: 3px;
-	margin: 0 auto;
-	width: 100%;
-	.picTile {
-		padding: 3px;
-		width: 250px;
-		border-radius: 0px;
-		background: white;
-		img {
-			width: 100%;
-			max-width: 100%;
-		}
-	}
-}
-
 .tagline {
 	font-size: 2em;
 	margin-right: 2em;
@@ -158,7 +138,7 @@ body {
 
 // landing page styles
 
-#srch-term {
+#srchterm {
 	width: 40em;
 }
 
@@ -527,8 +507,17 @@ body {
 }
 
 @media (min-width: 1200px) {
-    .col-lg-5ths {
-        width: 20%;
-        float: left;
-    }
+	.col-lg-5ths {
+		width: 20%;
+		float: left;
+	}
+}
+
+.keywrd {
+	border: 2px solid;
+	border-radius: 5px;
+	margin: 5px;
+	padding: 0px 5px;
+	display: inline-block;
+	float: left;
 }
