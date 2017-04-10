@@ -12,6 +12,9 @@
 .center
 	%h2= @picture.title
 	= image_tag @picture.image.url()
+	= link_to like_picture_path(@picture), method: :put, class: "btn btn-default" do
+		%span.glyphicon.glyphicon-heart
+			=@picture.get_upvotes.size
 	%h3
 		Description
 	%p= @picture.description

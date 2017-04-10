@@ -21,7 +21,7 @@
 						.box
 							= link_to (image_tag pic.image.url(:small)), pic
 		.col-md-6
-			.categoryColumn
+			.categoryColumn#joinUp
 				%p.landingTextColor
 					popEFX is an artist community by artists for artists and clients of every kind. Join today!
 				.lpageHeading
@@ -37,7 +37,7 @@
 					Assets available for every price range. Not the same old pictures and illustrations. See new artists.
 				- if !user_signed_in?
 					%p.landingBtn
-						= link_to "Join to Purchase", new_user_registration_path, :id => "landingBtn" 
+						= link_to "Join to Download", new_user_registration_path, :id => "landingBtn" 
 		:javascript
 			/*  set landingGal's height to be joinUp's height */
 			var joinUp = document.getElementById('joinUp'),
@@ -47,9 +47,7 @@
 			addResizeListener(joinUp, resizeFn);
 			limitHeight("landingGal","joinUp");
 	.bubbleBar
-		.center.vcenter
-			%h1
-				Future Home of the Bubble Bar
+		#bubbles
 	- if (@artMonth.present?)
 		.row.landingPad
 			.container-fluid#featured

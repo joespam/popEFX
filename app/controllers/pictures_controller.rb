@@ -1,10 +1,16 @@
 class PicturesController < ApplicationController
 
-	before_action :find_picture, only: [:show, :edit, :update, :destroy]
+	before_action :find_picture, only: [:show, :edit, :update, :destroy, :upvote]
+
+	respond_to :js, :json, :html
 
 	def autocomplete
 		render json: Picture.search(params[:query], autocomplete: true, limit: 10).map(&:title)
 		# render json: Picture.search(params[:query], autocomplete: true, limit: 10).map(&:title,&:description)
+	end
+
+	def bubbleBarSearch
+		redirect_to pictures_path(:srchterm => params[:srchterm])
 	end
 
 	def create
@@ -65,10 +71,10 @@ class PicturesController < ApplicationController
 	end
 
 	def index
+
 		# initialize the pictures array
 		#
 		@pictures = Picture.first
-
 		if params[:srchterm].present?
 
 			# if the search button was hit, search pictures for the terms
@@ -98,6 +104,7 @@ class PicturesController < ApplicationController
 		else
 			@pictures = Picture.all.order("RANDOM()")
 		end
+
 	end
 
 	def landing
@@ -182,6 +189,11 @@ class PicturesController < ApplicationController
 		else
 			render "edit"
 		end
+	end
+
+	def upvote
+		@picture.upvote_by current_user
+		redirect_to :back
 	end
 
 	# function that takes a string of space separated keywords

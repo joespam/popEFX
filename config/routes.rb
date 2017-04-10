@@ -1,7 +1,11 @@
 Rails.application.routes.draw do
 
 	devise_for :users, controllers: { registrations: "users/registrations" }
-	resources :pictures
+	resources :pictures do
+		member do
+			put "like", to: "pictures#upvote"
+		end
+	end
 
 	# custom routes for users
 	get '/users/:id/' => 'users#show', :as => :user
@@ -9,6 +13,9 @@ Rails.application.routes.draw do
 
 	# custom route for landing page
 	get '/home' => 'pictures#landing', :as => :home
+
+	# custom bubble bar search route
+	get '/bubbleBar', :to => 'pictures#bubbleBarSearch'
 
 	# root "pictures#index"
 	root "pictures#landing"
