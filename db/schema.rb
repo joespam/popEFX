@@ -11,26 +11,35 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170409174616) do
+ActiveRecord::Schema.define(version: 20170411201027) do
+
+  create_table "followings", force: :cascade do |t|
+    t.integer  "follower"
+    t.integer  "following"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "keywords", force: :cascade do |t|
     t.integer  "picture_id"
     t.string   "word"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean  "hidden"
   end
 
   create_table "pictures", force: :cascade do |t|
     t.string   "title"
     t.text     "description"
-    t.datetime "created_at",                                  null: false
-    t.datetime "updated_at",                                  null: false
+    t.datetime "created_at",                                                null: false
+    t.datetime "updated_at",                                                null: false
     t.integer  "user_id"
     t.string   "image_file_name"
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
     t.decimal  "price",              precision: 10, scale: 2
+    t.float    "rating",                                      default: 5.0
   end
 
   add_index "pictures", ["user_id"], name: "index_pictures_on_user_id"
@@ -46,28 +55,37 @@ ActiveRecord::Schema.define(version: 20170409174616) do
     t.integer  "avatar_file_size"
     t.datetime "avatar_updated_at"
     t.integer  "user_id"
-  end
-
-  create_table "users", force: :cascade do |t|
-    t.string   "email",                  default: "", null: false
-    t.string   "encrypted_password",     default: "", null: false
-    t.string   "reset_password_token"
-    t.datetime "reset_password_sent_at"
-    t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0,  null: false
-    t.datetime "current_sign_in_at"
-    t.datetime "last_sign_in_at"
-    t.string   "current_sign_in_ip"
-    t.string   "last_sign_in_ip"
-    t.datetime "created_at",                          null: false
-    t.datetime "updated_at",                          null: false
-    t.string   "username"
-    t.integer  "profile_id"
     t.string   "street"
     t.string   "street2"
     t.string   "city"
     t.string   "state"
-    t.integer  "zip"
+    t.string   "zip"
+  end
+
+  create_table "ratings", force: :cascade do |t|
+    t.float    "rating"
+    t.integer  "rater"
+    t.integer  "rated"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string   "email",                  default: "",  null: false
+    t.string   "encrypted_password",     default: "",  null: false
+    t.string   "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer  "sign_in_count",          default: 0,   null: false
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.string   "current_sign_in_ip"
+    t.string   "last_sign_in_ip"
+    t.datetime "created_at",                           null: false
+    t.datetime "updated_at",                           null: false
+    t.string   "username"
+    t.integer  "profile_id"
+    t.float    "rating",                 default: 5.0
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

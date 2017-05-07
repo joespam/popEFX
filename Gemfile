@@ -23,6 +23,7 @@ gem 'masonry-rails', '~> 0.2.4'
 gem 'font-awesome-rails', '~> 4.7', '>= 4.7.0.1'
 gem 'searchkick'
 gem 'acts_as_votable', '~> 0.10.0'
+gem 'rmagick', '~> 2.16'
 
 group :development, :test do
   gem 'byebug'

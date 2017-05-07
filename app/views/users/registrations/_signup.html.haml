@@ -21,6 +21,7 @@
 
 			.form-group.form-inline.signupInput.center.bc
 				= profile_form.input :avatar, input_html: { class: 'form-control', as: :file }
+				= image_tag "", id: "user_profile_attributes_avatar_prev", class: "picPrev"
 			.form-group.form-inline.signupInput.center
 				= profile_form.input :brandname
 			.form-group.form-inline.signupInput.center
@@ -30,13 +31,51 @@
 			.controls
 				.form-group.form-inline
 					= f.input :picture1, label: 'Pic 1', as: :file
+					= image_tag "", id: "user_picture1_prev", class: "picPrev"
+					= hidden_field_tag :keywordStr1, ""
+				.form-group.form-inline
 					= f.input :picture2, label: 'Pic 2', as: :file
+					= image_tag "", id: "user_picture2_prev", class: "picPrev"
+					= hidden_field_tag :keywordStr2, ""
+				.form-group.form-inline
 					= f.input :picture3, label: 'Pic 3', as: :file
+					= image_tag "", id: "user_picture3_prev", class: "picPrev"
+					= hidden_field_tag :keywordStr3, ""
+				.form-group.form-inline
 					= f.input :picture4, label: 'Pic 4', as: :file
+					= image_tag "", id: "user_picture4_prev", class: "picPrev"
+					= hidden_field_tag :keywordStr4, ""
+				.form-group.form-inline
 					= f.input :picture5, label: 'Pic 5', as: :file
+					= image_tag "", id: "user_picture5_prev", class: "picPrev"
+					= hidden_field_tag :keywordStr5, ""
 
 	.form-actions
 		.form-group.form-inline.center.bc						
 			= f.button :submit, "Save"
 			= f.button :submit, "Save and Enter Banking"
 
+:javascript
+	document.getElementById('user_profile_attributes_avatar_prev').style.visibility = "hidden";
+	document.getElementById('user_picture1_prev').style.visibility = "hidden";
+	document.getElementById('user_picture2_prev').style.visibility = "hidden";
+	document.getElementById('user_picture3_prev').style.visibility = "hidden";
+	document.getElementById('user_picture4_prev').style.visibility = "hidden";
+	document.getElementById('user_picture5_prev').style.visibility = "hidden";
+
+	document.getElementById('user_profile_attributes_avatar').addEventListener('change', handleFileSelect, false);
+	document.getElementById('user_picture1').addEventListener('change', handleFileSelect, false);
+	document.getElementById('user_picture2').addEventListener('change', handleFileSelect, false);
+	document.getElementById('user_picture3').addEventListener('change', handleFileSelect, false);
+	document.getElementById('user_picture4').addEventListener('change', handleFileSelect, false);
+	document.getElementById('user_picture5').addEventListener('change', handleFileSelect, false);
+
+	document.getElementById('user_picture1_prev').addEventListener('load', keywordsFromImage, false);
+	document.getElementById('user_picture2_prev').addEventListener('load', keywordsFromImage, false);
+	document.getElementById('user_picture3_prev').addEventListener('load', keywordsFromImage, false);
+	document.getElementById('user_picture4_prev').addEventListener('load', keywordsFromImage, false);
+	document.getElementById('user_picture5_prev').addEventListener('load', keywordsFromImage, false);
+
+
+	var previews = document.querySelector('[id$="_prev"]');
+//	alert(" hey:" + previews.length);

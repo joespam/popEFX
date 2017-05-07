@@ -1,6 +1,8 @@
 class ProfilesController < ApplicationController
+
+	before_action :find_user, only: [:edit,:update,:upvote]
+
 	def edit
-		@user = User.find(params[:user_id])
 		@profile = @user.profile
 	end
 
@@ -18,8 +20,18 @@ class ProfilesController < ApplicationController
 		end
 	end	
 
+	def upvote
+		@user.upvote_by current_user
+		redirect_to :back
+	end
+
 	private
 	def profile_params
 		params.require(:profile).permit(:brandname, :avatar, :description, :level)
 	end
+
+	def find_user
+		@user = User.find(params[:user_id])
+	end
+
 end

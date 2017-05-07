@@ -11,7 +11,8 @@
 					%i.glyphicon.glyphicon-search
 .center
 	%h2= @picture.title
-	= image_tag @picture.image.url()
+	.itemFrame
+		= image_tag @picture.image.url(), :class => "showItem"
 	= link_to like_picture_path(@picture), method: :put, class: "btn btn-default" do
 		%span.glyphicon.glyphicon-heart
 			=@picture.get_upvotes.size
@@ -35,3 +36,21 @@
 	= link_to "Back", root_path
 	= link_to "Edit", edit_picture_path
 	= link_to "Delete", picture_path, method: :delete, data: { confirm: "Are you sure?" }
+
+:javascript
+	/*  
+	 * Set size of display image and have it resize with the window 
+	 */
+	var itemFrame = document.getElementsByClassName('itemFrame')[0];
+	$('.showItem').css({
+		'max-width': $(window).width() - 100,
+		'max-height': $(window).height() - 300	
+	});
+
+	var resizeFn = function(){
+		$('.showItem').css({
+			'max-width': $(window).width() - 100,
+			'max-height': $(window).height() - 300	
+		});
+	};
+	addResizeListener(itemFrame, resizeFn);

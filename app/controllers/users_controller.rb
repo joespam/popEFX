@@ -14,7 +14,6 @@ class UsersController < ApplicationController
 	end
 
 	def update
-
 		if @user.update(user_params)
 			redirect_to @user, notice: "Profile successfully updated"
 		else
@@ -29,7 +28,7 @@ private
 	end
 
 	def user_params
-		params.require(:user).permit(:email, :username, profile_attributes: [:id, :brandname, :avatar, :description])
+		params.require(:user).permit(:email, :username, profile_attributes: [:brandname, :avatar, :description])
 	end
 
 	def find_user

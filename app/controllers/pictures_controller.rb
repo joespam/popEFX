@@ -1,5 +1,8 @@
 class PicturesController < ApplicationController
 
+	include Keywords
+	include Watermark
+
 	before_action :find_picture, only: [:show, :edit, :update, :destroy, :upvote]
 
 	respond_to :js, :json, :html
@@ -20,7 +23,7 @@ class PicturesController < ApplicationController
 
 			# now do keyword creation
 			#
-			keywords = keywordStringToKeywords(picture_params[:keywords])
+			keywords = Keywords.keywordStringToKeywords(picture_params[:keywords])
 
 			msg = ""
 			keywords.each do |kw|
@@ -79,14 +82,14 @@ class PicturesController < ApplicationController
 
 			# if the search button was hit, search pictures for the terms
 			@pictures = []
-			results = Picture.search(params[:srchterm], page: params[:page])
+			results = Picture.search(params[:srchterm], operator: "or", page: params[:page])
 			results.each do |x|
 				@pictures << x
 			end
 
 			# also search keywords for the search terms
 			#
-			keywords = Keyword.search(params[:srchterm], page: params[:page])
+			keywords = Keyword.search(params[:srchterm], operator: "or", page: params[:page])
 
 			# retrieve images based on keywords
 			#
@@ -97,24 +100,26 @@ class PicturesController < ApplicationController
 					#
 					if !@pictures.include? pic
 						@pictures << pic
+						# @pictures << Watermark.textmarkImage(pic.image.url)
 					end
 				end
 			end
 
 		else
 			@pictures = Picture.all.order("RANDOM()")
+			# @pictures = Watermark.watermarkArray Picture.all.order("RANDOM()")
 		end
 
 	end
 
 	def landing
 		@pictures = Picture.all.order("RANDOM()")
+		# @pictures = Watermark.watermarkArray Picture.all.order("RANDOM()")
 		if params[:srchterm].present?
 			redirect_to pictures_path(params)
-		else
-			@pictures = Picture.all.order("RANDOM()")
+		# else
+		# 	@pictures = Picture.all.order("RANDOM()")
 		end
-
 
 		@artMonth = User.first
 
@@ -129,7 +134,8 @@ class PicturesController < ApplicationController
 				@featPix = fivePix[0]
 				fivePix.each_with_index do | pix, i | 
 					if i > 0
-						@artMonthStuff << pix 
+						# @artMonthStuff << Watermark.textmarkImage(pix.image.url) 
+						@artMonthStuff << pix
 					end
 				end
 			end
@@ -194,59 +200,6 @@ class PicturesController < ApplicationController
 	def upvote
 		@picture.upvote_by current_user
 		redirect_to :back
-	end
-
-	# function that takes a string of space separated keywords
-	# and returns an array of keywords
-	#
-	def keywordStringToKeywords(keywordString)
-
-		# first split out any double quoted strings from the keyword list
-		#
-		quotes = keywordString.downcase.scan(/"([^"]*)"/).flatten
-
-		# also remove any quoted strings from the keyword list, to
-		# be added later
-		#
-		keywords = keywordString.gsub(/"([^"]*)"/, '')
-
-		# process keyword array to replace commas or other punctuation with whitespace
-		#
-		keywords.downcase.gsub(/[^[:word:]\s]/, '')
-
-		# split keyword string into individual keywords
-		#
-		singleKeywords = keywords.split(" ")
-
-		# now push each of the multi-string keywords back onto
-		# the master list of keywords
-		#
-		quotes.each do |q|
-			if q != ""
-				singleKeywords.push q
-			end
-		end
-
-		return singleKeywords
-
-	end
-
-	# convert an array of keyword objects to a single string
-	# with multiple-word keywords surrounded by double quotes
-	#
-	def keywordArrayToKeywordString(keywordArray)
-		keywordString = ""
-
-		keywordArray.each do |kw|
-			test = kw.word =~ /\s+/
-			if test.nil?
-				keywordString += " #{kw.word} "
-			else
-				keywordString += " \"#{kw.word}\" "
-			end
-		end
-
-		return keywordString
 	end
 
 private

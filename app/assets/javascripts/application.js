@@ -96,8 +96,9 @@
 //  featureFit
 //		given element id <name>, an img <img>, and the number of images
 //		per row <perRow>, set the backgraound css properties of name to img 
+//    Watermark by default, 
 //
-function featureFit(name,img, perRow) {
+function featureFit(name,img,perRow,watermark=true) {
 
 	// get width and height of featured div
 	var featWidth = $('#featured').css("width");
@@ -125,6 +126,15 @@ function featureFit(name,img, perRow) {
 		"width":"96.5%",
 		"height":tileHeight + 'px'
 	});
+
+  if (watermark) {
+    // console.log("calling markimg with " + img + " #" + name);
+    markImg(img,'#' + name, false);
+  } else {
+    $('#' + name).css({
+      "background-image":'url(' + img + ')'
+    });
+  }
 
 	if (perRow > 1) {
 		$('#' + name).css("margin","4px");

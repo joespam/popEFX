@@ -6,7 +6,11 @@
 	%ul.profileMenu
 		%li= image_tag 'proficons.png'
 		%li= link_to "Read Reviews", "#"
-		= image_tag "staricons.png"
+		- if @user.rating > 0
+			.star-rating{ "data-score" => @user.rating }
+		= link_to like_user_path(@user), method: :put, class: "btn btn-default" do
+			%span.glyphicon.glyphicon-heart
+				=@user.get_upvotes.size
 		- if user_signed_in? && current_user != @user
 			%li= link_to "Message this Artist", "#"
 		%li= link_to "Set Keyword Alerts", "#"
@@ -34,3 +38,13 @@
 			- @userPix.each do |pic|
 				.imageFrame
 					= link_to (image_tag pic.image.url(:medium)), pic
+
+:javascript
+	$('.star-rating').raty({
+		path: '/assets/',
+		readOnly: true,
+		score: function() {
+			return $(this).attr('data-score');
+		}
+	});
+

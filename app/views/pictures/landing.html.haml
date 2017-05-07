@@ -2,7 +2,7 @@
 	.row.center.landingPad
 		%p.landingTextColor
 			What are you looking for?
-		%form.navbar-form{ :role => "search"}
+		%form.navbar-form{ :role => "search", :id => "searchForm"}
 			= form_tag root_path, class: "form-inline", method: :get do
 				.input-group.input-group-lg
 					- if params[:srchterm].present?
@@ -10,34 +10,46 @@
 							= link_to "clear", root_path, class: "btn btn-default"
 					= text_field_tag :srchterm, params[:srchterm], class: "form-control", id: "srchterm", autocomplete: "on", :placeholder => "Enter Keywords: eg, blue kitten"
 					.input-group-btn
-						%button.btn.btn-primary{ :type => "submit"}
+						%button.btn.btn-primary.btnShadow{ :type => "submit"}
 							%i.glyphicon.glyphicon-search
-
+						%button.btn.btn-primary.btnShadow{ :id => "filterBtn" }
+							%i.fa.fa-plus{ "aria-hidden" => "true", :id => "filterIcon"}
+		.filter
+			= render 'filter'
 	.row.landingPad
 		.col-md-6
-			#landingGal
+			.categoryColumn#landingGal
 				#pictures.transitions-enabled
-					- @pictures.each do |pic|
-						.box
-							= link_to (image_tag pic.image.url(:small)), pic
+					- @pictures.each_with_index do |pic,i|
+
+						= link_to pic do
+							.box{:id => "box_#{i}"}
+								:javascript
+									markImg('#{asset_path pic.image.url(:small)}','box_#{i}');
 		.col-md-6
 			.categoryColumn#joinUp
-				%p.landingTextColor
-					popEFX is an artist community by artists for artists and clients of every kind. Join today!
-				.lpageHeading
-					ARTISTS
-				%p.landingTextColor
-					Earn what you deserve. Join the world's best marketplace that celebrates artists.
-				- if !user_signed_in?
-					%p.landingBtn
-						= link_to "Join as Contributor", new_user_registration_path, :id => "landingBtn" 
-				.lpageHeading
-					CLIENTS
-				%p.landingTextColor
-					Assets available for every price range. Not the same old pictures and illustrations. See new artists.
-				- if !user_signed_in?
-					%p.landingBtn
-						= link_to "Join to Download", new_user_registration_path, :id => "landingBtn" 
+				.landingBlurb
+					.lpageHeading
+						ARTISTS
+					%p.landingTextColor
+						Earn what you deserve. Join the world's best marketplace that celebrates artists.
+					%br
+					- if !user_signed_in?
+						%p.landingBtn
+							= link_to "Join as Contributor", new_user_registration_path, :id => "landingBtn" 
+					%br
+					.lpageHeading
+						CLIENTS
+					%p.landingTextColor
+						Assets available for every price range. Not the same old pictures and illustrations. See new artists.
+					%br
+					- if !user_signed_in?
+						%p.landingBtn
+							= link_to "Join to Download", new_user_registration_path, :id => "landingBtn" 
+					%br
+					%p.landingTextColor
+						popEFX is an artist community by artists for artists and clients of every kind. Join today!
+					%br
 		:javascript
 			/*  set landingGal's height to be joinUp's height */
 			var joinUp = document.getElementById('joinUp'),

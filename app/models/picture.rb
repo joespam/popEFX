@@ -3,6 +3,12 @@ class Picture < ActiveRecord::Base
 	#
 	searchkick autocomplete: ['title','description']
 
+	# exclude rating from searches until I figure out
+	# how to avoid the mapper_parsing/number_format_exception
+	def search_data
+	  attributes.except(:rating)
+	end
+
 	acts_as_votable
 
 	belongs_to :user

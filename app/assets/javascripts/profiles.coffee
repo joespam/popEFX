@@ -8,4 +8,5 @@ $ ->
 		$gallery.masonry
 			isAnimated: true
 			isFitWidth: true
-			itemSelector: '.imageFrame'
+			itemSelector: '.picTile'
+			stamp: $('.signupForm')

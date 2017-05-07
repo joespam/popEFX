@@ -6,12 +6,16 @@ class Users::RegistrationsController < Devise::RegistrationsController
 	def configure_permitted_parameters
 	   devise_parameter_sanitizer.permit(:sign_up, keys: 
 	   	[:email, :username, :password, :password_confirmation, :remember_me, :profile_id,
-				{pictures: []}, profile_attributes: [:brandname, :description, :avatar]
+				{pictures: []}, profile_attributes: [
+					:id, :brandname, :description, :avatar, :street, :street2, :city, :state, :zip
+				]
 			]
 		)
 	   devise_parameter_sanitizer.permit(:account_update, keys: 
-	   	[:email, :username, :password, :password_confirmation, :remember_me, :profile_id,
-				{pictures: []}, profile_attributes: [:brandname, :description, :avatar]
+	   	[:email, :username, :remember_me, :profile_id,
+				{pictures: []}, profile_attributes: [
+					:id, :brandname, :description, :avatar, :street, :street2, :city, :state, :zip
+				]
 			]
 		)
 	end
@@ -19,12 +23,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
 	def create
 		super
 
-		if params[:user][:pictures].present?
-
-				@user.pictures.build(image: params[:user][:pictures]) 
-				@user.pictures.last.save
-		end
-      # if params[:user][:pictures].present?
+      if params[:user][:pictures].present?
       	# array input not currently working
       	#
    #    	puts ""
@@ -35,31 +34,110 @@ class Users::RegistrationsController < Devise::RegistrationsController
 			# 	@user.pictures.build(image: image) if image.present?
 			# }
 
-      # end
+      end
 
+      msg = ""
 		if params[:user][:picture1].present?
+
 			@user.pictures.build(image: params[:user][:picture1]) 
 			@user.pictures.last.save
+			picture_id = @user.pictures.last.id
+
+			keywords = Keywords.keywordStringToKeywords(params[:keywordStr1])
+
+			keywords.each do |kw|
+				keyword = Keyword.new do |x|
+					x.picture_id = picture_id
+					x.word = kw
+					x.hidden = true
+				end
+				if !keyword.save
+					msg += "keyword #{kw} add failure. "
+				end
+			end
+
 		end
 
 		if params[:user][:picture2].present?
 			@user.pictures.build(image: params[:user][:picture2]) 
 			@user.pictures.last.save
+			picture_id = @user.pictures.last.id
+			
+			keywords = Keywords.keywordStringToKeywords(params[:keywordStr2])
+
+			puts("Img2: " + params[:keywordStr2]);
+
+			keywords.each do |kw|
+				keyword = Keyword.new do |x|
+					x.picture_id = picture_id
+					x.word = kw
+					x.hidden = true
+				end
+				if !keyword.save
+					msg += "keyword #{kw} add failure. "
+				end
+			end
+
 		end
 
 		if params[:user][:picture3].present?
 			@user.pictures.build(image: params[:user][:picture3]) 
 			@user.pictures.last.save
+			picture_id = @user.pictures.last.id
+			
+			keywords = Keywords.keywordStringToKeywords(params[:keywordStr3])
+			puts("Img3: " + params[:keywordStr3]);
+
+			keywords.each do |kw|
+				keyword = Keyword.new do |x|
+					x.picture_id = picture_id
+					x.word = kw
+					x.hidden = true
+				end
+				if !keyword.save
+					msg += "keyword #{kw} add failure. "
+				end
+			end
 		end
 
 		if params[:user][:picture4].present?
 			@user.pictures.build(image: params[:user][:picture4]) 
 			@user.pictures.last.save
+			picture_id = @user.pictures.last.id
+			
+			keywords = Keywords.keywordStringToKeywords(params[:keywordStr4])
+			puts("Img4: " + params[:keywordStr4]);
+
+			keywords.each do |kw|
+				keyword = Keyword.new do |x|
+					x.picture_id = picture_id
+					x.word = kw
+					x.hidden = true
+				end
+				if !keyword.save
+					msg += "keyword #{kw} add failure. "
+				end
+			end
 		end
 
 		if params[:user][:picture5].present?
 			@user.pictures.build(image: params[:user][:picture5]) 
 			@user.pictures.last.save
+			picture_id = @user.pictures.last.id
+			
+			keywords = Keywords.keywordStringToKeywords(params[:keywordStr5])
+			puts("Img5: " + params[:keywordStr5]);
+
+			keywords.each do |kw|
+				keyword = Keyword.new do |x|
+					x.picture_id = picture_id
+					x.word = kw
+					x.hidden = true
+				end
+				if !keyword.save
+					msg += "keyword #{kw} add failure. "
+				end
+			end
 		end
 
 	end

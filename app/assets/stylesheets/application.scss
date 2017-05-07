@@ -38,6 +38,9 @@ body {
 	}
 }
 
+.unclickable  { text-decoration: none; }
+.unclickable:hover { cursor: default; }
+
 .lvl{
 	color: white;
 	text-align: center;
@@ -140,6 +143,7 @@ body {
 
 #srchterm {
 	width: 40em;
+	box-shadow: 6px 6px 3px #888888;
 }
 
 .landingBtn {
@@ -225,7 +229,9 @@ body {
 	font-style: bold;
 	color: purple;
 	text-align: center;
-	padding: 10px;
+	padding-left: 10px;
+	padding-right: 10px;
+	padding-bottom: 10px;
 }
 
 .imageFrame {
@@ -520,4 +526,17 @@ body {
 	padding: 0px 5px;
 	display: inline-block;
 	float: left;
+}
+
+.landingBlurb {
+	margin: auto;
+	width: 50%;
+}
+
+.btnShadow {
+	box-shadow: 6px 6px 3px #888888;
+}
+
+.btnShadow:hover {
+	background-color: purple !important;
 }

@@ -4,6 +4,14 @@ class User < ActiveRecord::Base
 	#
 	searchkick autocomplete: ['username']
 
+	acts_as_votable
+
+	# exclude rating from searches until I figure out
+	# how to avoid the mapper_parsing/number_format_exception
+	def search_data
+	  attributes.except(:rating)
+	end
+
 	# Include default devise modules. Others available are:
 	# :confirmable, :lockable, :timeoutable and :omniauthable
 	devise :database_authenticatable, :registerable,
@@ -31,6 +39,10 @@ class User < ActiveRecord::Base
 	attr_accessor :pictures[5]
 	serialize :pictures, Array
 
+	attr_accessor :keywords[5]
+	serialize :keywords, Array
+
+
 	# currently adding an array of pictures is not working.
 	# hardcoding five separate possible pictures instead.
 	#
@@ -39,6 +51,14 @@ class User < ActiveRecord::Base
 	attr_accessor :picture3
 	attr_accessor :picture4
 	attr_accessor :picture5
+
+	# keywords automatically added at upload time
+	#
+	attr_accessor :keywordStr1
+	attr_accessor :keywordStr2
+	attr_accessor :keywordStr3
+	attr_accessor :keywordStr4
+	attr_accessor :keywordStr5
 
 	def validate_username
 		if User.where(email: username).exists?

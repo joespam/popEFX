@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
 
-	devise_for :users, controllers: { registrations: "users/registrations" }
+	devise_for :users, controllers: { registrations: "users/registrations" } 
+
+	put "like_user/:id", to: "profiles#upvote", as: :like_user
+
 	resources :pictures do
 		member do
 			put "like", to: "pictures#upvote"

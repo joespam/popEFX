@@ -2,10 +2,10 @@
 	- @users.each_with_index do |u|
 		.indexTile
 			- p = Profile.find_by(user_id: u.id)
-			- avatar = p.avatar.url(:medium)
+			- avatar = p.avatar ? p.avatar.url(:medium) : "missing_avatar.png"
 			.row.center
 				= link_to u do
-					.profileAvatar{:style => %(background:url("#{p.avatar.url(:medium)}"); background-size: contain; background-position: 50%; background-repeat: no-repeat)}
+					.profileAvatar{:style => %(background:url("#{avatar}"); background-size: contain; background-position: 50%; background-repeat: no-repeat)}
 			.row.center
 				%p.profileBrandLevel
 					= link_to p.brandname, u
