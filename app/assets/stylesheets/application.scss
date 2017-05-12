@@ -292,6 +292,13 @@ body {
 	margin: 20px;
 }
 
+// class to hide any images set to be featured
+// for the purpose of generating a watermarked image
+//
+.featuredWmark {
+	display: none;
+}
+
 .navFoot {
 	margin-top: 50px;
 	border: none;

@@ -20,7 +20,7 @@ Rails.application.routes.draw do
 	# custom bubble bar search route
 	get '/bubbleBar', :to => 'pictures#bubbleBarSearch'
 
-	# root "pictures#index"
+	# root "pictures#landing"
 	root "pictures#landing"
 
 end

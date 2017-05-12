@@ -13,7 +13,6 @@
 //= require jquery
 //= require jquery_ujs
 //= require bootstrap-sprockets
-//= require turbolinks
 //= require masonry/jquery.masonry
 //= require_tree .
 
@@ -96,7 +95,7 @@
 //  featureFit
 //		given element id <name>, an img <img>, and the number of images
 //		per row <perRow>, set the backgraound css properties of name to img 
-//    Watermark by default, 
+//    (future) Watermark true by default.
 //
 function featureFit(name,img,perRow,watermark=true) {
 
@@ -128,12 +127,12 @@ function featureFit(name,img,perRow,watermark=true) {
 	});
 
   if (watermark) {
-    // console.log("calling markimg with " + img + " #" + name);
-    markImg(img,'#' + name, false);
+    // console.log("watermark #" + name + " with retrieved hidden image source.");
+    // markImg(img,'#' + name, false);
   } else {
-    $('#' + name).css({
-      "background-image":'url(' + img + ')'
-    });
+    // $('#' + name).css({
+    //   "background-image":'url(' + img + ')'
+    // });
   }
 
 	if (perRow > 1) {
@@ -154,4 +153,32 @@ function limitHeight(first,second) {
 	if(fh > sh) {
 	    $('#' + first).height(sh);
 	} 
+}
+
+// given an element that has a single img element child with a valid 
+// src, return the source of that image. Used in watermarking.
+//
+function getImgSrc(elemID) {
+  var imgElem = document.getElementById(elemID).getElementsByTagName('img')[0];
+  alert(imgElem);
+  console.log("arg");
+}  
+
+// given an element, set the height to the size of the window, minus
+// the margin in Px.
+//
+function limitElementHeightToWindow(elemID,marginPx) {
+    $(elemID).css({ height: $(window).innerHeight() - marginPx });
+}
+
+// Given an html setup with a parent Div of class divClass and a child
+// child img of class childImgClass, sets the size of the image and adds
+// a resize listener to the div that sizes the image on window changes.
+//
+function divImgSetSize(divClass,childImgClass) {
+
+  $('.' + childImgClass).css({
+    'max-width': $(window).width() - 100,
+    'max-height': $(window).height() - 300  
+  });
 }

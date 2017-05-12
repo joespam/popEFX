@@ -21,7 +21,6 @@
 			.categoryColumn#landingGal
 				#pictures.transitions-enabled
 					- @pictures.each_with_index do |pic,i|
-
 						= link_to pic do
 							.box{:id => "box_#{i}"}
 								:javascript
