@@ -992,8 +992,11 @@ return /******/ (function(modules) { // webpackBootstrap
 // if the imgElement flag is set. imgElement is meant to be
 // set false if the structure of the image display is
 // a div with a background image instead of a div with a child img element
-function markImg (picURL,elemID,wmarkPath="",imgElement=true) {
+function markImg (picURL,elemID,wmarkPath="",imgElement) {
 
+	if (typeof imgElement == 'undefined') {
+		imgElement = true;
+	}
 	// tirggerID holds the ID of the element to trigger the 
 	// image change event on
 	//
