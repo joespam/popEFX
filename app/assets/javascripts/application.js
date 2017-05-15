@@ -97,7 +97,12 @@
 //		per row <perRow>, set the backgraound css properties of name to img 
 //    (future) Watermark true by default.
 //
-function featureFit(name,img,perRow,watermark=true) {
+function featureFit(name,img,perRow,watermark) {
+
+  // watermark should default to true
+  if (typeof watermark == 'undefined')
+    watermark = true;
+  }
 
 	// get width and height of featured div
 	var featWidth = $('#featured').css("width");
