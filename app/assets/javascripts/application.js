@@ -100,7 +100,7 @@
 function featureFit(name,img,perRow,watermark) {
 
   // watermark should default to true
-  if (typeof watermark == 'undefined')
+  if (typeof watermark == 'undefined') {
     watermark = true;
   }
 
