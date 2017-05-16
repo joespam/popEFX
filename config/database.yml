@@ -24,7 +24,7 @@ production:
   <<: *default
   adapter: postgresql 
   encoding: unicode
-  database: db/pEFX
+  database: pefx
   pool: 5
-  username: popEFXAdmin
+  username: popefxadmin
   password: railsapp
