@@ -17,6 +17,6 @@ $ ->
 			isFitWidth: true
 			
 $ ->
-  $('#srchterm').typeahead
+	$('#srchterm').typeahead
 		name: "picture"
 		remote: "/pictures/autocomplete?query=%QUERY"
