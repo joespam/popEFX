@@ -1,7 +1,7 @@
 class Profile < ActiveRecord::Base
 	# make searchable
 	#
-	searchkick autocomplete: ['brandname']
+	searchkick word_start: [:brandname]
 
 	acts_as_votable
 

@@ -2,7 +2,7 @@ class User < ActiveRecord::Base
 
 	# make searchable
 	#
-	searchkick autocomplete: ['username']
+	searchkick word_start: [:user]
 
 	acts_as_votable
 

@@ -1,7 +1,7 @@
 class Picture < ActiveRecord::Base
 	# make searchable
 	#
-	searchkick autocomplete: ['title','description']
+	searchkick word_start: [:title,:description]
 
 	# exclude rating from searches until I figure out
 	# how to avoid the mapper_parsing/number_format_exception

@@ -1,7 +1,7 @@
 class Keyword < ActiveRecord::Base
 	# make searchable
 	#
-	searchkick autocomplete: ['word']
+	searchkick word_start: [:word]
 
 	has_many :pictures
 end
