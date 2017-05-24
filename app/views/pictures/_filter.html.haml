@@ -100,18 +100,20 @@
 -#	});
 
 :javascript
-	$("#flat").spectrum({
-		containerClassName: 'cPicker',
-		showButtons: false,
-		flat: true,
-		showInput: true,
-		appendTo: '.srchColorPicker',
-		preferredFormat: "hex3"
-	});
+	$(document).ready( function () {
+		$("#flat").spectrum({
+			containerClassName: 'cPicker',
+			showButtons: false,
+			flat: true,
+			showInput: true,
+			appendTo: '.srchColorPicker',
+			preferredFormat: "hex3"
+		});
 
-	$("#flatClearable").spectrum({
-		flat: true,
-		showInput: true,
-		allowEmpty:true
+		$("#flatClearable").spectrum({
+			flat: true,
+			showInput: true,
+			allowEmpty:true
+		});
 	});
 
