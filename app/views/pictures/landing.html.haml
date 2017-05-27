@@ -49,14 +49,6 @@
 					%p.landingTextColor
 						popEFX is an artist community by artists for artists and clients of every kind. Join today!
 					%br
-		:javascript
-			/*  set landingGal's height to be joinUp's height */
-			var joinUp = document.getElementById('joinUp'),
-			resizeFn = function(){
-				limitHeight("landingGal","joinUp");
-			};
-			addResizeListener(joinUp, resizeFn);
-			limitHeight("landingGal","joinUp");
 	.bubbleBar
 		#bubbles
 	- if (@artMonth.present?)
@@ -85,4 +77,13 @@
 	.row
 		%h1.center.collectionsLink.landingPad
 			View Collections
-
+:javascript
+	$(document).ready( function () {
+		limitHeight("landingGal","joinUp");
+		/*  set landingGal's height to be joinUp's height */
+		var joinUp = document.getElementById('joinUp'),
+		resizeFn = function(){
+			limitHeight("landingGal","joinUp");
+		};
+		addResizeListener(joinUp, resizeFn);
+	});

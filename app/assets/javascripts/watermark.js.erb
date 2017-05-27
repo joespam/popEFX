@@ -1014,7 +1014,6 @@ function markImg (picURL,elemID,wmarkPath="",imgElement) {
 		watermark([img, wmark])
 		  .image(watermark.image.center(0.5))
 		  .then(function (img) {
-		  		console.log('bleah');
 
 				img.setAttribute('crossOrigin', 'anonymous');
 
@@ -1057,6 +1056,9 @@ function markImg (picURL,elemID,wmarkPath="",imgElement) {
 		  });
 
 	} else {
+
+		console.log("setting bkg");
+
 		console.log("source: " + img);
 		console.log("watermark: " + wmark);
 		watermark([img, wmark])

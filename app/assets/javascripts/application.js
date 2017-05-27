@@ -166,7 +166,6 @@ function limitHeight(first,second) {
 function getImgSrc(elemID) {
   var imgElem = document.getElementById(elemID).getElementsByTagName('img')[0];
   alert(imgElem);
-  console.log("arg");
 }  
 
 // given an element, set the height to the size of the window, minus
@@ -181,7 +180,6 @@ function limitElementHeightToWindow(elemID,marginPx) {
 // a resize listener to the div that sizes the image on window changes.
 //
 function divImgSetSize(divClass,childImgClass) {
-
   $('.' + childImgClass).css({
     'max-width': $(window).width() - 100,
     'max-height': $(window).height() - 300  
