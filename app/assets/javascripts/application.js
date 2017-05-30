@@ -147,15 +147,15 @@ function featureFit(name,img,perRow,watermark) {
 
 // 
 // 	limitHeight
-// 		Given divs of id's contained in first and second, if first.height > second.height
-//			set first.height = second.height
+// 		Given divs of id's of 'first' and 'second', if first.height not equal
+//      to second.height, set first.height = second.height
 // 		
 
 function limitHeight(first,second) {
 	var fh = $('#' + first).outerHeight();
 	var sh = $('#' + second).outerHeight();
   
-	if(fh > sh) {
+	if(fh !== sh) {
 	    $('#' + first).height(sh);
 	} 
 }

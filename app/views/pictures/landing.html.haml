@@ -24,7 +24,10 @@
 						= link_to pic do
 							.box{:id => "box_#{i}"}
 								:javascript
-									markImg('#{asset_path pic.image.url(:small)}','box_#{i}');
+									$(document).ready( function () {
+										markImg('#{asset_path pic.image.url(:small)}','box_#{i}');
+									});
+
 		.col-md-6
 			.categoryColumn#joinUp
 				.landingBlurb
