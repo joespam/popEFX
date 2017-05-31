@@ -3,14 +3,16 @@
 //
 // markimg marks an image URL 'picURL' with either a default
 // or given watermark 'wmarkPath'. Conditional logic happens
-// if elemID is an image element or a div, and also
-// if the imgElement flag is set. imgElement is meant to be
-// set false if the structure of the image display is
-// a div with a background image instead of a div with a child img element
+// if elemID is an image element or a div, and also if the 
+// imgElement flag is set. imgElement is meant to be set to
+//  false if 
+//		the structure of the image display is a div with a background image
+//  true if 
+//     div with a child img element
 //
 function markImg (picURL,elemID,wmarkPath="",imgElement) {
 
-	if (typeof imgElement == 'undefined') {
+	if (typeof imgElement === 'undefined') {
 		imgElement = true;
 	}
 	// triggerID holds the ID of the element to trigger the 
@@ -57,18 +59,45 @@ function markImg (picURL,elemID,wmarkPath="",imgElement) {
 		  			});
 
 		  		} else {
-					document.getElementById(elemID).appendChild(img);
+
+					// $(document).ready( function () { 
+
+			  			var div = document.getElementById(elemID);
+
+			  			// if the div already has an image, delete it.
+			  			//
+			  			if (div.hasChildNodes()) {
+			  				div.removeChild(div.firstElementChild);
+			  			}
+
+						var divRect = div.getBoundingClientRect();
+						//
+						// occasionally when this gets called, the div height is yet to be set
+						// if so, hard code it to match the image's natural height scaled to 
+						// match the css-determined box width.
+						//
+						if(divRect.height === 0 ) {
+							var scaledHeight = Math.ceil( img.naturalHeight * ( divRect.width / img.naturalWidth ) );
+							// div.setAttribute("style","height:" + scaledHeight + "px");
+							// $('#' + elemID).css({ height: scaledHeight + 'px' });
+							div.style.height = scaledHeight + 'px';
+							console.log("style height: " + div.style.height);
+
+						}
+
+						div.appendChild(img);
+					// });
 				}
 
 				// create a custom 'image marked' event
-				var myEvent = new CustomEvent("imgMarked", {
-					detail: {
-						element: triggerID
-					}
-				});
+				// var myEvent = new CustomEvent("imgMarked", {
+				// 	detail: {
+				// 		element: triggerID
+				// 	}
+				// });
 
-				// Trigger it!
-				document.getElementById(triggerID).dispatchEvent(myEvent);
+				// // Trigger it!
+				// document.getElementById(triggerID).dispatchEvent(myEvent);
 		  });
 
 	} else {

@@ -14,6 +14,7 @@
 //= require jquery_ujs
 //= require bootstrap-sprockets
 //= require masonry/jquery.masonry
+//= require spectrum
 //= require_tree .
 
 // create the ability to catch resize events on specific elements.
@@ -28,7 +29,7 @@
 (function(){
   var attachEvent = document.attachEvent;
   var isIE = navigator.userAgent.match(/Trident/);
-  console.log(isIE);
+  // console.log(isIE);
   var requestFrame = (function(){
     var raf = window.requestAnimationFrame || window.mozRequestAnimationFrame || window.webkitRequestAnimationFrame ||
         function(fn){ return window.setTimeout(fn, 20); };
