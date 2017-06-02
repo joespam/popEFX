@@ -10,10 +10,14 @@
 //  true if 
 //     div with a child img element
 //
-function markImg (picURL,elemID,wmarkPath="",imgElement) {
+function markImg (picURL,elemID,wmarkPath,imgElement) {
 
 	if (typeof imgElement === 'undefined') {
 		imgElement = true;
+	}
+
+	if (typeof wmarkPath === 'undefined') {
+		wmarkPath = "";
 	}
 	// triggerID holds the ID of the element to trigger the 
 	// image change event on
@@ -67,8 +71,18 @@ function markImg (picURL,elemID,wmarkPath="",imgElement) {
 			  			// if the div already has an image, delete it.
 			  			//
 			  			if (div.hasChildNodes()) {
-			  				div.removeChild(div.firstElementChild);
-			  			}
+
+			  				// elemID is expected to be of the form 'word_integer', so
+			  				// determine the number so we can construct the image ID and
+			  				// select it to remove it before we append the watermarked image
+			  				//
+			  				var i = elemID.replace( /^\D+/g, '');
+			  				var oldImg = $('#boximg_' + i);
+			  				if (typeof oldImg !== 'undefined') {
+			  					oldImg.remove();
+			  					img.id = 'boximg_' + i;
+			  				}
+			  			} 
 
 						var divRect = div.getBoundingClientRect();
 						//
@@ -81,8 +95,6 @@ function markImg (picURL,elemID,wmarkPath="",imgElement) {
 							// div.setAttribute("style","height:" + scaledHeight + "px");
 							// $('#' + elemID).css({ height: scaledHeight + 'px' });
 							div.style.height = scaledHeight + 'px';
-							console.log("style height: " + div.style.height);
-
 						}
 
 						div.appendChild(img);
