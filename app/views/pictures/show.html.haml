@@ -15,7 +15,7 @@
 		= image_tag @picture.image.url(), :class => "showItem", :style => "display: none"
 		%img.showItem#loneImg
 			:javascript
-				markImg('#{asset_path @picture.image.url()}','loneImg', '#{asset_path "watermark.temp.png"}');
+				markImg('#{asset_path @picture.image.url()}','loneImg', '#{asset_path "watermark_temp.png"}');
 
 	= link_to like_picture_path(@picture), method: :put, class: "btn btn-default" do
 		%span.glyphicon.glyphicon-heart
@@ -38,8 +38,9 @@
 		= link_to Profile.find_by(user_id: @picture.user.id).brandname, @picture.user
 	%hr
 	= link_to "Back", root_path
-	= link_to "Edit", edit_picture_path
-	= link_to "Delete", picture_path, method: :delete, data: { confirm: "Are you sure?" }
+	- if @picture.user == current_user
+		= link_to "Edit", edit_picture_path
+		= link_to "Delete", picture_path, method: :delete, data: { confirm: "Are you sure?" }
 :javascript
 	var itemFrame = document.getElementsByClassName('itemFrame')[0];
 

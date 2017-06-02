@@ -25,7 +25,7 @@ function markImg (picURL,elemID,wmarkPath,imgElement) {
 	var triggerID = elemID;
 	var wmark = wmarkPath;
 	if (wmark === "") {
-		wmark = 'assets/watermark.temp.png';
+		wmark = 'assets/watermark_temp.png';
 	}
 
 	var pieces = picURL.split('?');
