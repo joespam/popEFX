@@ -59,7 +59,7 @@ class PicturesController < ApplicationController
 		#
 		keywords = Keyword.where(:picture_id => @picture.id)
 
-		@keywordString = keywordArrayToKeywordString(keywords)
+		@keywordString = Keywords.keywordArrayToKeywordString(keywords)
 		# add double quotes to any keywords containing whitespace
 		# before concatenating them onto the string
 		#
