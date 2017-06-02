@@ -58,10 +58,15 @@
                     if (nowY < 0) nowY = bbHeight + nowY;
                     else          nowY = nowY % bbHeight;
                     
-                        // Render moved particle
-                    // txtCircs[i].animate({cx: nowX, cy: nowY});
-                    circs[i].attr({cx: nowX, cy: nowY});
-                    labels[i].attr({x: nowX, y: nowY})
+                    // Render moved particle
+                    // there is a bug that causes nowX and nowY to be NaN, until 
+                    // we figure out why, just do nothing if that case occurs.
+
+                    if (!isNaN(nowX) && !isNaN(nowY)) {
+                        // txtCircs[i].animate({cx: nowX, cy: nowY});
+                        circs[i].attr({cx: nowX, cy: nowY});
+                        labels[i].attr({x: nowX, y: nowY})
+                    }
                 }
                 
                     // Calc growth
