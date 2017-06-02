@@ -17,8 +17,9 @@
 					- @pictures.each_with_index do |pic,i|
 						= link_to pic do
 							.picTile{:id => "picTile_#{i}"}
+								= image_tag pic.image.url(:small), :id => "boximg_#{i}"
 								:javascript
-									markImg('#{asset_path pic.image.url(:small)}','picTile_#{i}');
+									markImg('#{asset_path pic.image.url(:small)}','picTile_#{i}', '#{asset_path "watermark_temp.png"}');
 :javascript
 	/*  set landingGal's height to be joinUp's height */
 	var gallery = document.getElementById('picGallery'),

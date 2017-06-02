@@ -23,9 +23,10 @@
 					- @pictures.each_with_index do |pic,i|
 						= link_to pic do
 							.box{:id => "box_#{i}"}
+								= image_tag pic.image.url(:small), :id => "boximg_#{i}"
 								:javascript
 									$(document).ready( function () {
-										markImg('#{asset_path pic.image.url(:small)}','box_#{i}');
+										markImg('#{asset_path pic.image.url(:small)}','box_#{i}','#{asset_path "watermark_temp.png"}');
 									});
 
 		.col-md-6
