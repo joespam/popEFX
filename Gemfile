@@ -23,6 +23,7 @@ gem 'font-awesome-rails', '~> 4.7', '>= 4.7.0.1'
 gem 'searchkick'
 gem 'acts_as_votable', '~> 0.10.0'
 gem 'rmagick', '~> 2.16'
+gem 'js-asset_paths', '~> 0.3.0'
 
 group :development, :test do
   gem 'byebug'

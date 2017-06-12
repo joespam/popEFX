@@ -95,6 +95,8 @@ GEM
     jquery-turbolinks (2.1.0)
       railties (>= 3.1.0)
       turbolinks
+    js-asset_paths (0.3.0)
+      rails (>= 4.0)
     json (1.8.6)
     kgio (2.11.0)
     loofah (2.0.3)
@@ -219,6 +221,7 @@ DEPENDENCIES
   jbuilder (~> 2.0)
   jquery-rails
   jquery-turbolinks
+  js-asset_paths (~> 0.3.0)
   masonry-rails (~> 0.2.4)
   paperclip (~> 5.1)
   paperclip-watermark (~> 1.0)
