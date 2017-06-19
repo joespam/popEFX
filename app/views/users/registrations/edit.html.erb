@@ -17,6 +17,8 @@
 
     <%= f.fields_for :profile do |profile_form| %>
 
+      <%= profile_form.input :heroImage, input_html: { class: 'form-control', as: :file } %>
+
       <%= profile_form.input :avatar, input_html: { class: 'form-control', as: :file } %>
       <%= profile_form.input :brandname %>
       <%= profile_form.input :description %>

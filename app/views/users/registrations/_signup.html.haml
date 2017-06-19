@@ -22,6 +22,9 @@
 			.form-group.form-inline.signupInput.center.bc
 				= profile_form.input :avatar, input_html: { class: 'form-control', as: :file }
 				= image_tag "", id: "user_profile_attributes_avatar_prev", class: "picPrev"
+			.form-group.form-inline.signupInput.center.bc
+				= profile_form.input :heroImage, input_html: { class: 'form-control', as: :file }
+				= image_tag "", id: "user_profile_attributes_heroImage_prev", class: "picPrev"
 			.form-group.form-inline.signupInput.center
 				= profile_form.input :brandname
 			.form-group.form-inline.signupInput.center
@@ -57,6 +60,7 @@
 
 :javascript
 	document.getElementById('user_profile_attributes_avatar_prev').style.visibility = "hidden";
+	document.getElementById('user_profile_attributes_heroImage_prev').style.visibility = "hidden";
 	document.getElementById('user_picture1_prev').style.visibility = "hidden";
 	document.getElementById('user_picture2_prev').style.visibility = "hidden";
 	document.getElementById('user_picture3_prev').style.visibility = "hidden";
@@ -64,6 +68,7 @@
 	document.getElementById('user_picture5_prev').style.visibility = "hidden";
 
 	document.getElementById('user_profile_attributes_avatar').addEventListener('change', handleFileSelect, false);
+	document.getElementById('user_profile_attributes_heroImage').addEventListener('change', handleFileSelect, false);
 	document.getElementById('user_picture1').addEventListener('change', handleFileSelect, false);
 	document.getElementById('user_picture2').addEventListener('change', handleFileSelect, false);
 	document.getElementById('user_picture3').addEventListener('change', handleFileSelect, false);
@@ -75,7 +80,6 @@
 	document.getElementById('user_picture3_prev').addEventListener('load', keywordsFromImage, false);
 	document.getElementById('user_picture4_prev').addEventListener('load', keywordsFromImage, false);
 	document.getElementById('user_picture5_prev').addEventListener('load', keywordsFromImage, false);
-
 
 	var previews = document.querySelector('[id$="_prev"]');
 //	alert(" hey:" + previews.length);

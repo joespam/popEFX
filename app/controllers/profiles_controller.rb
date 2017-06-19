@@ -2,6 +2,13 @@ class ProfilesController < ApplicationController
 
 	before_action :find_user, only: [:edit,:update,:upvote]
 
+	def destroy
+		@user.profile.avatar = nil;
+		@user.profile.heroImage = nil;
+
+		@user.save
+	end
+
 	def edit
 		@profile = @user.profile
 	end
@@ -27,7 +34,7 @@ class ProfilesController < ApplicationController
 
 	private
 	def profile_params
-		params.require(:profile).permit(:brandname, :avatar, :description, :level)
+		params.require(:profile).permit(:brandname, :avatar, :description, :level, :heroImage)
 	end
 
 	def find_user

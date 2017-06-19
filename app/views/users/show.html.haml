@@ -1,6 +1,11 @@
 
+
 .row.signupTop
-	.placeholderBlock
+	- if @profile.heroImage.present?
+		:javascript
+			setHeroImage("#{@profile.heroImage}");
+	- else
+		.placeholderBlock
 .col-md-3
 	= image_tag @profile.avatar.url(:medium)
 	%ul.profileMenu
@@ -41,10 +46,22 @@
 
 :javascript
 	$('.star-rating').raty({
-		path: '/assets/',
+		path: '/public/images/ratyrate',
 		readOnly: true,
 		score: function() {
 			return $(this).attr('data-score');
 		}
 	});
+
+	window.onbeforeunload = clearHeroImage;
+	function clearHeroImage() {
+		console.log("removing hero Image");
+
+		// check for existence of child image
+		//
+		var myNode = document.getElementById("heroImage");
+		myNode.innerHTML = '';
+
+		return;
+	}
 

@@ -186,3 +186,14 @@ function divImgSetSize(divClass,childImgClass) {
     'max-height': $(window).height() - 300  
   });
 }
+
+//
+//  Create an image element as a child of the heroImage div.
+//  This div exists solely for the purpose of placing a hero image
+//  on an artist's profile page.
+//
+function setHeroImage(image) {
+  var elem = document.createElement("img");
+  elem.src = image
+  document.getElementById("heroImage").appendChild(elem);
+}

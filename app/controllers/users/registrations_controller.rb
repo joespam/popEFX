@@ -7,14 +7,14 @@ class Users::RegistrationsController < Devise::RegistrationsController
 	   devise_parameter_sanitizer.permit(:sign_up, keys: 
 	   	[:email, :username, :password, :password_confirmation, :remember_me, :profile_id,
 				{pictures: []}, profile_attributes: [
-					:id, :brandname, :description, :avatar, :street, :street2, :city, :state, :zip
+					:id, :brandname, :description, :avatar, :heroImage, :street, :street2, :city, :state, :zip
 				]
 			]
 		)
 	   devise_parameter_sanitizer.permit(:account_update, keys: 
 	   	[:email, :username, :remember_me, :profile_id,
 				{pictures: []}, profile_attributes: [
-					:id, :brandname, :description, :avatar, :street, :street2, :city, :state, :zip
+					:id, :brandname, :description, :avatar, :heroImage, :street, :street2, :city, :state, :zip
 				]
 			]
 		)

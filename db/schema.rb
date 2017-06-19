@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170411201027) do
+ActiveRecord::Schema.define(version: 20170612202630) do
 
   create_table "followings", force: :cascade do |t|
     t.integer  "follower"
@@ -48,8 +48,8 @@ ActiveRecord::Schema.define(version: 20170411201027) do
     t.string   "brandname"
     t.text     "description"
     t.integer  "level"
-    t.datetime "created_at",          null: false
-    t.datetime "updated_at",          null: false
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
     t.string   "avatar_file_name"
     t.string   "avatar_content_type"
     t.integer  "avatar_file_size"
@@ -60,6 +60,10 @@ ActiveRecord::Schema.define(version: 20170411201027) do
     t.string   "city"
     t.string   "state"
     t.string   "zip"
+    t.string   "heroImage_file_name"
+    t.string   "heroImage_content_type"
+    t.integer  "heroImage_file_size"
+    t.datetime "heroImage_updated_at"
   end
 
   create_table "ratings", force: :cascade do |t|

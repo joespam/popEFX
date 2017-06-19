@@ -14,6 +14,10 @@ class UsersController < ApplicationController
 	end
 
 	def update
+		puts 20 * "="
+		puts " updating user "
+		puts 20 * "="
+		
 		if @user.update(user_params)
 			redirect_to @user, notice: "Profile successfully updated"
 		else
@@ -28,7 +32,7 @@ private
 	end
 
 	def user_params
-		params.require(:user).permit(:email, :username, profile_attributes: [:brandname, :avatar, :description])
+		params.require(:user).permit(:email, :username, profile_attributes: [:brandname, :avatar, :description, :heroImage])
 	end
 
 	def find_user
