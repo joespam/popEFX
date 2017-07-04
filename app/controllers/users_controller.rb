@@ -59,7 +59,7 @@ class UsersController < ApplicationController
 		@freePix = @pics[0..4]
 		@userPix = @pics.drop(5)
 		@following = is_following
-		if current_user == @user
+		if !current_user.nil? && current_user == @user
 			@following_list = Following.where("follower = #{current_user.id}")
 		end
 
@@ -94,9 +94,9 @@ private
 	# return whether current_user is following @user
 	#
 	def is_following
-		follows = 0
+		follows = []
 		following = false
-		if current_user != @user
+		if !current_user.nil? && current_user != @user
 			follows = Following.where("follower = #{current_user.id} AND following = #{@user.id}")
 		end
 		if follows.length != 0 
