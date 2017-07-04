@@ -16,3 +16,31 @@
 		font-size: .75em;
 	}
 }
+
+input[type=checkbox].profile  {
+	display:none;
+}
+ 
+input[type=checkbox].profile + label.profile {
+	// background-size: 50%;
+	height: 75px;
+	width: 75px;
+	display:inline-block;
+	padding: 0 0 0 0px;
+}
+
+input[type=checkbox]:checked.profile + label.profile  {
+	// background-size: 50%;
+	height: 75px;
+	width: 75px;
+	display:inline-block;
+	padding: 0 0 0 0px;
+}
+
+input[type=checkbox].profile + label.profile#follow {
+	background: image-url("follow.png") no-repeat center;
+}
+
+input[type=checkbox]:checked.profile + label.profile#follow {
+	background: image-url("s_follow.png") no-repeat center;
+}

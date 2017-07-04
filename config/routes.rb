@@ -12,6 +12,7 @@ Rails.application.routes.draw do
 
 	# custom routes for users
 	get '/users/:id/' => 'users#show', :as => :user
+	patch '/users/:id/' => 'users#follow'
 	get '/users/' => 'users#index', :as => :all_users
 
 	# custom route for landing page

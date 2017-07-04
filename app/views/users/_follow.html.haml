@@ -1,0 +1,7 @@
+- if user_signed_in? && current_user != @user
+	= form_for @user, html: { multipart: true, remote: true, class: "profileForm"} do |f|
+		- if @following == true
+			%input.profile#follow{:type => 'checkbox', :name=>'follow', :alt=>"follow this artist", :checked=>'checked'}
+		- else
+			%input.profile#follow{:type => 'checkbox', :name=>'follow', :alt=>"follow this artist"}
+		%label.profile#follow{'for'=>'follow'}

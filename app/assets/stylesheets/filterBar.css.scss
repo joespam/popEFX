@@ -93,78 +93,77 @@ input[type=checkbox].filterBar + label.filterBar#womanChk {
 }
 
 input[type=checkbox].filterBar + label.filterBar#catChk {
-	background: image-iamge-url("filterBar/cat.png") no-repeat center;
+	background: image-url("filterBar/cat.png") no-repeat center;
 }
 
 input[type=checkbox].filterBar + label.filterBar#dollarChk {
-	background: image-iamge-url("filterBar/level1.png") no-repeat center;
+	background: image-url("filterBar/level1.png") no-repeat center;
 }
 
 input[type=checkbox].filterBar + label.filterBar#childChk {
-	background: image-iamge-url("filterBar/child.png") no-repeat center;
+	background: image-url("filterBar/child.png") no-repeat center;
 }
 
 input[type=checkbox].filterBar + label.filterBar#fitChk {
-	background: image-iamge-url("filterBar/workout.png") no-repeat center;
+	background: image-url("filterBar/workout.png") no-repeat center;
 }
 
 input[type=checkbox].filterBar + label.filterBar#levIIIChk {
-	background: image-iamge-url("filterBar/level2.png") no-repeat center;
+	background: image-url("filterBar/level2.png") no-repeat center;
 }
 
 input[type=checkbox].filterBar + label.filterBar#specialChk {
-	background: image-iamge-url("filterBar/july4th.png") no-repeat center;
+	background: image-url("filterBar/july4th.png") no-repeat center;
 }
 
 input[type=checkbox].filterBar + label.filterBar#levIVChk {
-	background: image-iamge-url("filterBar/level3.png") no-repeat center;
+	background: image-url("filterBar/level3.png") no-repeat center;
 }
 
 input[type=checkbox].filterBar + label.filterBar#mealsChk {
-	background: image-iamge-url("filterBar/foodanddrink.png") no-repeat center;
+	background: image-url("filterBar/foodanddrink.png") no-repeat center;
 }
 
-// Will have to eventually change this to be an individual icon for 
-// each picked choice.
+// selected icon
 
 input[type=checkbox]:checked.filterBar + label.filterBar#imagesChk {
-	background: iamge-url("filterBar/s_images.png") no-repeat center;
+	background: image-url("filterBar/s_images.png") no-repeat center;
 }
 
 input[type=checkbox]:checked.filterBar + label.filterBar#illustrationChk {
-	background: iamge-url("filterBar/s_illustration.png") no-repeat center;
+	background: image-url("filterBar/s_illustration.png") no-repeat center;
 }
 
 input[type=checkbox]:checked.filterBar + label.filterBar#videoChk {
-	background: iamge-url("filterBar/s_video.png") no-repeat center;
+	background: image-url("filterBar/s_video.png") no-repeat center;
 }
 
 input[type=checkbox]:checked.filterBar + label.filterBar#audioChk {
-	background: iamge-url("filterBar/s_audio.png") no-repeat center;
+	background: image-url("filterBar/s_audio.png") no-repeat center;
 }
 
 input[type=checkbox]:checked.filterBar + label.filterBar#animationChk {
-	background: iamge-url("filterBar/s_animation.png") no-repeat center;
+	background: image-url("filterBar/s_animation.png") no-repeat center;
 }
 
 input[type=checkbox]:checked.filterBar + label.filterBar#portraitChk {
-	background: iamge-url("filterBar/s_portrait.png") no-repeat center;
+	background: image-url("filterBar/s_portrait.png") no-repeat center;
 }
 
 input[type=checkbox]:checked.filterBar + label.filterBar#landscapeChk {
-	background: iamge-url("filterBar/s_landscape.png") no-repeat center;
+	background: image-url("filterBar/s_landscape.png") no-repeat center;
 }
 
 input[type=checkbox]:checked.filterBar + label.filterBar#squareChk {
-	background: iamge-url("filterBar/s_square.png") no-repeat center;
+	background: image-url("filterBar/s_square.png") no-repeat center;
 }
 
 input[type=checkbox]:checked.filterBar + label.filterBar#panoramaChk {
-	background: iamge-url("filterBar/s_panorama.png") no-repeat center;
+	background: image-url("filterBar/s_panorama.png") no-repeat center;
 }
 
 input[type=checkbox]:checked.filterBar + label.filterBar#noPChk {
-	background: iamge-url("filterBar/s_NoPeople.png") no-repeat center;
+	background: image-url("filterBar/s_NoPeople.png") no-repeat center;
 }
 
 input[type=checkbox]:checked.filterBar + label.filterBar#onePChk {

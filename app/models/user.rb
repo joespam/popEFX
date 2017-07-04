@@ -19,6 +19,7 @@ class User < ActiveRecord::Base
 
 	has_many :pictures, dependent: :destroy
 	has_one :profile, dependent: :destroy
+	has_many :following, dependent: :destroy
 	accepts_nested_attributes_for :pictures, :allow_destroy => true
 	accepts_nested_attributes_for :profile, :allow_destroy => true
 

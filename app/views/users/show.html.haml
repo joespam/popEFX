@@ -10,12 +10,21 @@
 	= image_tag @profile.avatar.url(:medium)
 	%ul.profileMenu
 		%li= image_tag 'proficons.png'
-		%li= link_to "Read Reviews", "#"
+
+		.row
+			.col-md-4
+				= link_to like_user_path(@user), method: :put, class: "btn btn-default" do
+					%span.glyphicon.glyphicon-heart{ :alt=>"favorite this artist"}
+						=@user.get_upvotes.size
+			.col-md-4
+				= render 'follow'
+			.col-md-4
+				rate
 		- if @user.rating > 0
 			.star-rating{ "data-score" => @user.rating }
-		= link_to like_user_path(@user), method: :put, class: "btn btn-default" do
-			%span.glyphicon.glyphicon-heart
-				=@user.get_upvotes.size
+
+		%li= link_to "Read Reviews", "#"
+
 		- if user_signed_in? && current_user != @user
 			%li= link_to "Message this Artist", "#"
 		%li= link_to "Set Keyword Alerts", "#"
