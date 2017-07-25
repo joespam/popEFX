@@ -1,30 +1,30 @@
 .container.signupTop
-	.row.center
-		%form.navbar-form{ :role => "search"}
-		= form_tag root_path, class: "form-inline", method: :get do
-			.input-group.input-group-lg
-				- if params[:srchterm].present?
-					.input-group-btn
-						= link_to "clear", root_path, class: "btn btn-default"
-				= text_field_tag :srchterm, params[:srchterm], class: "form-control", id: "srchterm", autocomplete: "on", :placeholder => "Enter Keywords: eg, blue kitten"
-				.input-group-btn
-					%button.btn.btn-primary{ :type => "submit"}
-						%i.glyphicon.glyphicon-search
-	.row
-		.picGalleryContainer
-			.col-md-12
-				#picGallery.transitions-enabled.infinite-scroll
-					- @pictures.each_with_index do |pic,i|
-						= link_to pic do
-							.picTile{:id => "picTile_#{i}"}
-								= image_tag pic.image.url(:small), :id => "boximg_#{i}"
-								:javascript
-									markImg('#{asset_path pic.image.url(:small)}','picTile_#{i}', '#{asset_path "watermark_temp.png"}');
+  .row.center
+    %form.navbar-form{ :role => "search"}
+    = form_tag root_path, class: "form-inline", method: :get do
+      .input-group.input-group-lg
+        - if params[:srchterm].present?
+          .input-group-btn
+            = link_to "clear", root_path, class: "btn btn-default"
+        = text_field_tag :srchterm, params[:srchterm], class: "form-control", id: "srchterm", autocomplete: "on", :placeholder => "Enter Keywords: eg, blue kitten"
+        .input-group-btn
+          %button.btn.btn-primary{ :type => "submit"}
+            %i.glyphicon.glyphicon-search
+  .row
+    .picGalleryContainer
+      .col-md-12
+        #picGallery.transitions-enabled.infinite-scroll
+          - @pictures.each_with_index do |pic,i|
+            = link_to pic do
+              .picTile{:id => "picTile_#{i}"}
+                = image_tag pic.image.url(:small), :id => "boximg_#{i}"
+                :javascript
+                  markImg('#{asset_path pic.image.url(:small)}','picTile_#{i}', '#{asset_path "watermark_temp.png"}');
 :javascript
-	/*  set landingGal's height to be joinUp's height */
-	var gallery = document.getElementById('picGallery'),
-	resizeFn = function(){
-		limitElementHeightToWindow("#picGallery",300);
-	};
-	addResizeListener(gallery, resizeFn);
+  /*  set landingGal's height to be joinUp's height */
+  var gallery = document.getElementById('picGallery'),
+  resizeFn = function(){
+    limitElementHeightToWindow("#picGallery",300);
+  };
+  addResizeListener(gallery, resizeFn);
 

@@ -3,20 +3,20 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
 $ ->
-	$('#pictures').imagesLoaded ->
-		$('#pictures').masonry
-			itemSelector: '.box'
-			isAnimated: true
-			isFitWidth: true
+  $('#pictures').imagesLoaded ->
+    $('#pictures').masonry
+      itemSelector: '.box'
+      isAnimated: true
+      isFitWidth: true
 
 $ ->
-	$('#picGallery').imagesLoaded ->
-		$('#picGallery').masonry
-			itemSelector: '.picTile'
-			isAnimated: true
-			isFitWidth: true
-			
+  $('#picGallery').imagesLoaded ->
+    $('#picGallery').masonry
+      itemSelector: '.picTile'
+      isAnimated: true
+      isFitWidth: true
+
 $ ->
-	$('#srchterm').typeahead
-		name: "picture"
-		remote: "/pictures/autocomplete?query=%QUERY"
+  $('#srchterm').typeahead
+    name: "picture"
+    remote: "/pictures/autocomplete?query=%QUERY"

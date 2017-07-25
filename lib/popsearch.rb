@@ -1,7 +1,7 @@
 module Popsearch
 
-	def this.stringSearch(searchStr)
+  def this.stringSearch(searchStr)
 
-	end
-	
+  end
+
 end

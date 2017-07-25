@@ -26,332 +26,332 @@
 @import "bootstrap";
 
 /*
-	Site themes
+  Site themes
 */
 
 body {
-	// background-color: black;
-	color: rgb(63,168,161);
-	font-family: calibri;
-	a {
-		color: rgb(63,168,161);
-	}
+  // background-color: black;
+  color: rgb(63,168,161);
+  font-family: calibri;
+  a {
+    color: rgb(63,168,161);
+  }
 }
 
 .heroImage {
-	width: 100%;
-	margin: auto;
-	margin-top: 20px;
+  width: 100%;
+  margin: auto;
+  margin-top: 20px;
 }
 
 .unclickable  { text-decoration: none; }
 .unclickable:hover { cursor: default; }
 
 .lvl{
-	color: white;
-	text-align: center;
-	padding: 0 .5em;
-	margin-left: .5em;
+  color: white;
+  text-align: center;
+  padding: 0 .5em;
+  margin-left: .5em;
 }
 
 .lvlc1 {
-	background-color: rgb(63,168,161);
+  background-color: rgb(63,168,161);
 }
 
 .lvlc2 {
-	background-color: blue;
+  background-color: blue;
 }
 
 .lvlc3 {
-	background-color: green;
+  background-color: green;
 }
 
 .lvlc4 {
-	background-color: purple;
+  background-color: purple;
 }
 
 /*
-	header gradient
+  header gradient
  */
 
 .headgrad {
-	border: none;
-	border-radius: 0px;
-	background: red; /* For browsers that do not support gradients */
-	background: -webkit-linear-gradient(black, rgb(63,168,161)); /* For Safari 5.1 to 6.0 */
-	background: -o-linear-gradient(black, rgb(63,168,161)); /* For Opera 11.1 to 12.0 */
-	background: -moz-linear-gradient(black, rgb(63,168,161)); /* For Firefox 3.6 to 15 */
-	background: linear-gradient(black, rgb(63,168,161)); /* Standard syntax */
+  border: none;
+  border-radius: 0px;
+  background: red; /* For browsers that do not support gradients */
+  background: -webkit-linear-gradient(black, rgb(63,168,161)); /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(black, rgb(63,168,161)); /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(black, rgb(63,168,161)); /* For Firefox 3.6 to 15 */
+  background: linear-gradient(black, rgb(63,168,161)); /* Standard syntax */
 }
 
 .maintheme {
-	font-family: calibri;
-	background-color: white;
-	font-size: 2em;
+  font-family: calibri;
+  background-color: white;
+  font-size: 2em;
 }
 
 .maintheme-link ul li a {
-	color: rgb(63,168,161);	
+  color: rgb(63,168,161);
 }
 
 .categoryColumn {
-	margin: 3px;
+  margin: 3px;
 }
 
 .overflow {
-	overflow-y: scroll;
+  overflow-y: scroll;
 }
 
 #landingGal {
-	overflow-y: scroll;
+  overflow-y: scroll;
 }
 
 .tagline {
-	font-size: 2em;
-	margin-right: 2em;
-	padding-top: 65px;
-	color: purple;
+  font-size: 2em;
+  margin-right: 2em;
+  padding-top: 65px;
+  color: purple;
 }
 
 .secondaryNav {
-	width: 100%;
-	height: 1em !important;	
-	font-size: 2em;
-	text-align: center;
-	a {
-		color: purple;
-	}
+  width: 100%;
+  height: 1em !important;
+  font-size: 2em;
+  text-align: center;
+  a {
+    color: purple;
+  }
 }
 
 .catNav {
-	border:1px solid white;
-	border-width:1px 0;
-	list-style:none;
-	height: 1em !important;	
-	font-size: 2em;
-	text-align: center;
-	// margin-bottom: 50px;
-	margin-top: -25px;
-	a {
-		color: purple;
-		display:inline-block;
-		padding:10px;
-	}
-	ul {
-		list-style-type: none;
-	}
-	li {
-		display: inline;
-	}
+  border:1px solid white;
+  border-width:1px 0;
+  list-style:none;
+  height: 1em !important;
+  font-size: 2em;
+  text-align: center;
+  // margin-bottom: 50px;
+  margin-top: -25px;
+  a {
+    color: purple;
+    display:inline-block;
+    padding:10px;
+  }
+  ul {
+    list-style-type: none;
+  }
+  li {
+    display: inline;
+  }
 }
 
 // landing page styles
 
 #srchterm {
-	width: 40em;
-	box-shadow: 6px 6px 3px #888888;
+  width: 40em;
+  box-shadow: 6px 6px 3px #888888;
 }
 
 .landingBtn {
-	color: white;
-	background: rgb(63,168,161);
-	width: 100%;
-	padding: 0 3em;
-	margin: 2px;
-	text-align: center;
-	a {
-		color: white;
-		text-decoration: none;
-	}
+  color: white;
+  background: rgb(63,168,161);
+  width: 100%;
+  padding: 0 3em;
+  margin: 2px;
+  text-align: center;
+  a {
+    color: white;
+    text-decoration: none;
+  }
 }
 
 .landingLink {
-	color: purple;
-	a {
-		color: purple;
-		text-decoration: none;
-	}	
+  color: purple;
+  a {
+    color: purple;
+    text-decoration: none;
+  }
 }
 
 .landingPad {
-	padding-top: 20px;
+  padding-top: 20px;
 }
 
 .collectionsLink {
-	a {
-		text-decoration: none;
-	}		
+  a {
+    text-decoration: none;
+  }
 }
 
 #pictures {
-	margin: 0 auto;
-	width: 100%;
-	.box {
-		margin: 2px;
-		width: 175px;
-		padding: 0px;
-		border-radius: 0px;
-		background: white;
-		img {
-			width: 100%;
-			max-width: 100%;
-			// height: auto;
-		}
-	}
+  margin: 0 auto;
+  width: 100%;
+  .box {
+    margin: 2px;
+    width: 175px;
+    padding: 0px;
+    border-radius: 0px;
+    background: white;
+    img {
+      width: 100%;
+      max-width: 100%;
+      // height: auto;
+    }
+  }
 }
 
 .landingTextColor {
-	color: purple;
+  color: purple;
 }
 
 // center search form
 .center {
-	margin: 0 auto;
-	width: 100%;
-	text-align: center;
-	float: none;
+  margin: 0 auto;
+  width: 100%;
+  text-align: center;
+  float: none;
 }
 
 // landing page search button box
 .add-on .input-group-btn > .btn {
-	border-left-width:0;left:-2px;
-	-webkit-box-shadow: inset 0 1px 5px rgba(0, 0, 0, 0.075);
-	box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  border-left-width:0;left:-2px;
+  -webkit-box-shadow: inset 0 1px 5px rgba(0, 0, 0, 0.075);
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
 }
 
 /* stop the glowing blue shadow */
 .add-on .form-control:focus {
-	box-shadow:none;
-	-webkit-box-shadow:none; 
-	border-color:#cccccc; 
+  box-shadow:none;
+  -webkit-box-shadow:none;
+  border-color:#cccccc;
 }
 
 #srch_group{
-	// width: 60%;
+  // width: 60%;
 }
 
 .lpageHeading {
-	font-size: 1.5em;
-	font-style: bold;
-	color: purple;
-	text-align: center;
-	padding-left: 10px;
-	padding-right: 10px;
-	padding-bottom: 10px;
+  font-size: 1.5em;
+  font-style: bold;
+  color: purple;
+  text-align: center;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-bottom: 10px;
 }
 
 .imageFrame {
-	padding: 5px;
-	background-color: white;
-	border: none;
+  padding: 5px;
+  background-color: white;
+  border: none;
 }
 
 .imageTileWrapper {
-	width: 30%;
-	margin: 0 2% 2% 0;
-	float: left;
-	border: 1px solid white;
-	background-color: white;
+  width: 30%;
+  margin: 0 2% 2% 0;
+  float: left;
+  border: 1px solid white;
+  background-color: white;
 }
 
 .gallery .imageTile {
-	height: 0;
-	padding-bottom: 100%;
-	background-size: contain;
-	background-position: 50%;
-	background-repeat: no-repeat;
+  height: 0;
+  padding-bottom: 100%;
+  background-size: contain;
+  background-position: 50%;
+  background-repeat: no-repeat;
 }
 
 /*
-	bootstrap overrides
+  bootstrap overrides
 */
 
 .navbar-button {
-	color: white !important;
+  color: white !important;
 }
 
 .navbar-default .navbar-nav {
-	li {
-		a {
-			color: rgb(63,168,161);
-			padding: 7px;
-		}
-	}
+  li {
+    a {
+      color: rgb(63,168,161);
+      padding: 7px;
+    }
+  }
 }
 
 .navbar {
-	height: 125px;
-	background-color: white;
-	color: rgb(63,168,161);
+  height: 125px;
+  background-color: white;
+  color: rgb(63,168,161);
 }
 
 #featured {
-	outline: solid 1px;
-	padding: 5px;
-	margin: 10px;
+  outline: solid 1px;
+  padding: 5px;
+  margin: 10px;
 }
 
 .featuredTile {
-	width: 100%;
-	height: 100%;
-	padding: 10px;
-	margin: 20px;
+  width: 100%;
+  height: 100%;
+  padding: 10px;
+  margin: 20px;
 }
 
 // class to hide any images set to be featured
 // for the purpose of generating a watermarked image
 //
 .featuredWmark {
-	display: none;
+  display: none;
 }
 
 .navFoot {
-	margin-top: 50px;
-	border: none;
-	background-color: rgb(63,168,161);
-	color: white;
-	a {
-		color: white;
-	}
-	a:hover {
-		color: purple;
-	}
+  margin-top: 50px;
+  border: none;
+  background-color: rgb(63,168,161);
+  color: white;
+  a {
+    color: white;
+  }
+  a:hover {
+    color: purple;
+  }
 }
 
 .copyright {
-	padding-right: 50px;
+  padding-right: 50px;
 }
 
 .btn {
-	// padding: 14px 24px;
-	// border: 0 none;
-	font-weight: 700;
-	letter-spacing: 1px;
-	text-transform: uppercase;
+  // padding: 14px 24px;
+  // border: 0 none;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
 }
- 
+
 .btn:focus, .btn:active:focus, .btn.active:focus {
-	outline: 0 none;
+  outline: 0 none;
 }
- 
+
 .btn-primary {
-	background: rgb(63,168,161);
-	a {
-		color: white;
-	}
+  background: rgb(63,168,161);
+  a {
+    color: white;
+  }
 }
 
 .btn-primary.raised {
-	// box-shadow: 0 3px 0 0 #007299;
-	box-shadow: 0 3px 0 0 #ffffff;
+  // box-shadow: 0 3px 0 0 #007299;
+  box-shadow: 0 3px 0 0 #ffffff;
 }
 
 .bubbleBar {
-	margin: 5px 0;
-	height: 200px;
-	width: 100%;
-	background: rgb(63,168,161);
-	color: white;
+  margin: 5px 0;
+  height: 200px;
+  width: 100%;
+  background: rgb(63,168,161);
+  color: white;
 }
 
 .vcenter {
@@ -367,7 +367,7 @@ body {
 }
 
 /*
-	social media block
+  social media block
  */
  ._14 {
     font-size: 1.4em;
@@ -382,21 +382,21 @@ body {
     color: #fff;
 }
 .social-icons {
-	padding-left: 15px;
-	ul {
-		margin-top: 10px;
-		// padding: 0px;
-		list-style: none;
-	}
-	li {
-		vertical-align: top;
-		display: inline;
-		height: 100px;
-	}
-	a {
-		color: #fff;
-		text-decoration: none;
-	}
+  padding-left: 15px;
+  ul {
+    margin-top: 10px;
+    // padding: 0px;
+    list-style: none;
+  }
+  li {
+    vertical-align: top;
+    display: inline;
+    height: 100px;
+  }
+  a {
+    color: #fff;
+    text-decoration: none;
+  }
 }
 .fa-facebook {
     padding:10px 14px;
@@ -474,15 +474,15 @@ body {
 /////////////////////  end social media block ////////////////////
 
 .profilePagePadding {
-	padding-left: 50px;
+  padding-left: 50px;
 }
 
 .user-avatar {
-	float: left;
+  float: left;
 }
 
 .user-profile {
-	float: right;
+  float: right;
 }
 
 .radio_buttons.control-label {
@@ -491,7 +491,7 @@ body {
 }
 
 .radio-inline {
-	vertical-align: inherit;
+  vertical-align: inherit;
 }
 
 /////////////////////  bootstrap additions for five equal column layout ////////////////////
@@ -526,30 +526,30 @@ body {
 }
 
 @media (min-width: 1200px) {
-	.col-lg-5ths {
-		width: 20%;
-		float: left;
-	}
+  .col-lg-5ths {
+    width: 20%;
+    float: left;
+  }
 }
 
 .keywrd {
-	border: 2px solid;
-	border-radius: 5px;
-	margin: 5px;
-	padding: 0px 5px;
-	display: inline-block;
-	float: left;
+  border: 2px solid;
+  border-radius: 5px;
+  margin: 5px;
+  padding: 0px 5px;
+  display: inline-block;
+  float: left;
 }
 
 .landingBlurb {
-	margin: auto;
-	width: 50%;
+  margin: auto;
+  width: 50%;
 }
 
 .btnShadow {
-	box-shadow: 6px 6px 3px #888888;
+  box-shadow: 6px 6px 3px #888888;
 }
 
 .btnShadow:hover {
-	background-color: purple !important;
+  background-color: purple !important;
 }

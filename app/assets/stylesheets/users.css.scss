@@ -3,68 +3,68 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .tempContainer {
-	// this is only until the problems with masonry stamp is resolved
-	height: 1500px;
+  // this is only until the problems with masonry stamp is resolved
+  height: 1500px;
 }
 
 .signupTop {
-	margin: 20px;
+  margin: 20px;
 }
 
 .bg {
-	background-color: rgb(63,168,161);
+  background-color: rgb(63,168,161);
 }
 
 .tc {
-	color: white;
+  color: white;
 }
 
 .bc {
-	button {
-		background-color: purple;
-	}
+  button {
+    background-color: purple;
+  }
 }
 
 .profileBrandLevel {
-	display: inline;
+  display: inline;
 }
 
 .indexPage {
-	width: 80%;
-	margin-top: 30px;
+  width: 80%;
+  margin-top: 30px;
 }
 
 .indexTile {
-	float: left;
-	display: inline;
-	margin: .2em;
-	background-color: white;
-	width: 25%;
+  float: left;
+  display: inline;
+  margin: .2em;
+  background-color: white;
+  width: 25%;
 }
 
 .profileAvatar {
-	height: 0;
-	padding-bottom: 100%;
-	background-size: contain;
-	background-position: 50%;
-	background-repeat: no-repeat;
+  height: 0;
+  padding-bottom: 100%;
+  background-size: contain;
+  background-position: 50%;
+  background-repeat: no-repeat;
 }
 
 .signupForm {
-	// width: 752px;
-	// height: 558px;
-	position: absolute;
-	right: 1%;
-	top: 10px;
-	width: 80%;
-	border-radius: 5px;
-	border: 3px solid white;
-	// margin-right: 3em;
-	padding: 1em;
+  // width: 752px;
+  // height: 558px;
+  position: absolute;
+  right: 1%;
+  top: 10px;
+  width: 80%;
+  border-radius: 5px;
+  border: 3px solid white;
+  // margin-right: 3em;
+  padding: 1em;
 }
 
 .picPrev {
-	height: 50px;
+  height: 50px;
 }
 
 .stamp {
@@ -77,30 +77,30 @@
 }
 
 // .flowGal {
-// 	float: left;
-// 	width: 80%;
+//  float: left;
+//  width: 80%;
 // }
 
 #signupGal {
-	// background: #EEE; // grey for debugging
-	max-width: 1200px;
-	position: relative;
-	.picTile {
-		width: 160px;
-		height: 120px;
-		float: left;
-		margin-bottom: 3px;
-		margin-right: 3px;
-	}
+  // background: #EEE; // grey for debugging
+  max-width: 1200px;
+  position: relative;
+  .picTile {
+    width: 160px;
+    height: 120px;
+    float: left;
+    margin-bottom: 3px;
+    margin-right: 3px;
+  }
 }
 
 .signupTile {
-	  width: 160px;
-	  height: 120px;
-	  float: left;
-	  margin-bottom: 3px;
-	  margin-right: 3px;
-	}
+    width: 160px;
+    height: 120px;
+    float: left;
+    margin-bottom: 3px;
+    margin-right: 3px;
+  }
 
 /* clearfix */
 #signupGal:after {
@@ -110,63 +110,63 @@
 }
 
 #signupGalV {
-	margin: 0 auto;
-	width: 100%;
-	overflow-y: scroll;
-	height: 500px;
-	.picTile {
-		padding: 3px;
-		border-radius: 0px;
-		background: white;
-		display: inline;
-		width: 175px;
-		img {
-			width: 100%;
-			max-width: 100%;
-		}
-	}
+  margin: 0 auto;
+  width: 100%;
+  overflow-y: scroll;
+  height: 500px;
+  .picTile {
+    padding: 3px;
+    border-radius: 0px;
+    background: white;
+    display: inline;
+    width: 175px;
+    img {
+      width: 100%;
+      max-width: 100%;
+    }
+  }
 }
 
 #signupGalH {
-	margin: 0 auto;
-	width: 100%;
-	overflow-x: scroll;
-	.picTile {
-		padding: 3px;
-		border-radius: 0px;
-		background: white;
-		display: inline;
-		// height: 175px;
-		// width: 300px;
-		img {
-			height: 100%;
-			max-height: 100%;
-		}
-	}
+  margin: 0 auto;
+  width: 100%;
+  overflow-x: scroll;
+  .picTile {
+    padding: 3px;
+    border-radius: 0px;
+    background: white;
+    display: inline;
+    // height: 175px;
+    // width: 300px;
+    img {
+      height: 100%;
+      max-height: 100%;
+    }
+  }
 }
 
 #signupRadioStyle {
-	text-align: center;
-	padding: 0 20px;
+  text-align: center;
+  padding: 0 20px;
 }
 
 .signupInput {
-	font-size: 1em;
-	.form-group {
-		width: 100%;
-	}
-	label {
-		width: 30%;
-		text-align: left;
-	}
-	input {
-		width: 40% !important;
-	}
-	textarea {
-		width: 40% !important;
-		height: 8em;
-		margin-top: 10px;
-	}
+  font-size: 1em;
+  .form-group {
+    width: 100%;
+  }
+  label {
+    width: 30%;
+    text-align: left;
+  }
+  input {
+    width: 40% !important;
+  }
+  textarea {
+    width: 40% !important;
+    height: 8em;
+    margin-top: 10px;
+  }
 }
 
 .signupForm2 {
@@ -187,12 +187,12 @@
 
 }
 .picTile2 {
-	width: 90px;
-	height: 120px;
-	float: left;
-	margin-bottom: 3px;
-	margin-right: 3px;
-	background-color: purple;
+  width: 90px;
+  height: 120px;
+  float: left;
+  margin-bottom: 3px;
+  margin-right: 3px;
+  background-color: purple;
 }
 /* clearfix */
 #signupGal2:after {

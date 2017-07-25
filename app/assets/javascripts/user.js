@@ -2,14 +2,14 @@
 
 $(document).ready( function() {
 
-	$("#follow").change(function (){
+  $("#follow").change(function (){
 
-		if(document.getElementById('follow').checked) {
-			console.log("follow!");
-		} else {
-			console.log("unfollow!");
-		}
+    if(document.getElementById('follow').checked) {
+      console.log("follow!");
+    } else {
+      console.log("unfollow!");
+    }
 
-	  $(".profileForm").submit();
-	});
+    $(".profileForm").submit();
+  });
 });

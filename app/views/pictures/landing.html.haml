@@ -1,93 +1,93 @@
 .container
-	.row.center.landingPad
-		%p.landingTextColor
-			What are you looking for?
-		%form.navbar-form{ :role => "search", :id => "searchForm"}
-			= form_tag root_path, class: "form-inline", method: :get do
-				.input-group.input-group-lg
-					- if params[:srchterm].present?
-						.input-group-btn
-							= link_to "clear", root_path, class: "btn btn-default"
-					= text_field_tag :srchterm, params[:srchterm], class: "form-control", id: "srchterm", autocomplete: "on", :placeholder => "Enter Keywords: eg, blue kitten"
-					.input-group-btn
-						%button.btn.btn-primary.btnShadow{ :type => "submit"}
-							%i.glyphicon.glyphicon-search
-						%button.btn.btn-primary.btnShadow{ :id => "filterBtn" }
-							%i.fa.fa-plus{ "aria-hidden" => "true", :id => "filterIcon"}
-		.filter
-			= render 'filter'
-	.row.landingPad
-		.col-md-6
-			.categoryColumn#landingGal
-				#pictures.transitions-enabled
-					- @pictures.each_with_index do |pic,i|
-						= link_to pic do
-							.box{:id => "box_#{i}"}
-								= image_tag pic.image.url(:small), :id => "boximg_#{i}"
-								:javascript
-									$(document).ready( function () {
-										markImg('#{asset_path pic.image.url(:small)}','box_#{i}','#{asset_path "watermark_temp.png"}');
-									});
+  .row.center.landingPad
+    %p.landingTextColor
+      What are you looking for?
+    %form.navbar-form{ :role => "search", :id => "searchForm"}
+      = form_tag root_path, class: "form-inline", method: :get do
+        .input-group.input-group-lg
+          - if params[:srchterm].present?
+            .input-group-btn
+              = link_to "clear", root_path, class: "btn btn-default"
+          = text_field_tag :srchterm, params[:srchterm], class: "form-control", id: "srchterm", autocomplete: "on", :placeholder => "Enter Keywords: eg, blue kitten"
+          .input-group-btn
+            %button.btn.btn-primary.btnShadow{ :type => "submit"}
+              %i.glyphicon.glyphicon-search
+            %button.btn.btn-primary.btnShadow{ :id => "filterBtn" }
+              %i.fa.fa-plus{ "aria-hidden" => "true", :id => "filterIcon"}
+    .filter
+      = render 'filter'
+  .row.landingPad
+    .col-md-6
+      .categoryColumn#landingGal
+        #pictures.transitions-enabled
+          - @pictures.each_with_index do |pic,i|
+            = link_to pic do
+              .box{:id => "box_#{i}"}
+                = image_tag pic.image.url(:small), :id => "boximg_#{i}"
+                :javascript
+                  $(document).ready( function () {
+                    markImg('#{asset_path pic.image.url(:small)}','box_#{i}','#{asset_path "watermark_temp.png"}');
+                  });
 
-		.col-md-6
-			.categoryColumn#joinUp
-				.landingBlurb
-					.lpageHeading
-						ARTISTS
-					%p.landingTextColor
-						Earn what you deserve. Join the world's best marketplace that celebrates artists.
-					%br
-					- if !user_signed_in?
-						%p.landingBtn
-							= link_to "Join as Contributor", new_user_registration_path, :id => "landingBtn" 
-					%br
-					.lpageHeading
-						CLIENTS
-					%p.landingTextColor
-						Assets available for every price range. Not the same old pictures and illustrations. See new artists.
-					%br
-					- if !user_signed_in?
-						%p.landingBtn
-							= link_to "Join to Download", new_user_registration_path, :id => "landingBtn" 
-					%br
-					%p.landingTextColor
-						popEFX is an artist community by artists for artists and clients of every kind. Join today!
-					%br
-	.bubbleBar
-		#bubbles
-	- if (@artMonth.present?)
-		.row.landingPad
-			.container-fluid#featured
-				%p.landingTextColor
-					Artist of the Month: 
-					= link_to @artMonth.username, "/users/#{@artMonth.id}", :class => "landingLink"
-				- if (@featPix.present?)
-					.row
-						= link_to @featPix do
-							.featuredTile#featuredPrime
-								:javascript
-									featureFit("featuredPrime", "#{@featPix.image.url}", 1);
-					- if (@artMonthStuff.present?)
-						.row
-							- @artMonthStuff.each_with_index do |thing, i|
-								.col-md-3
-									= link_to thing do
-										.featuredTile{:id => "featTile#{i}"}
-											:javascript
-												featureFit("featTile" + "#{i}", "#{thing.image.url(:medium)}", 4);
-					%p.pull-right.landingTextColor
-						= link_to "see more", @artMonth, :class => "landingLink"
+    .col-md-6
+      .categoryColumn#joinUp
+        .landingBlurb
+          .lpageHeading
+            ARTISTS
+          %p.landingTextColor
+            Earn what you deserve. Join the world's best marketplace that celebrates artists.
+          %br
+          - if !user_signed_in?
+            %p.landingBtn
+              = link_to "Join as Contributor", new_user_registration_path, :id => "landingBtn"
+          %br
+          .lpageHeading
+            CLIENTS
+          %p.landingTextColor
+            Assets available for every price range. Not the same old pictures and illustrations. See new artists.
+          %br
+          - if !user_signed_in?
+            %p.landingBtn
+              = link_to "Join to Download", new_user_registration_path, :id => "landingBtn"
+          %br
+          %p.landingTextColor
+            popEFX is an artist community by artists for artists and clients of every kind. Join today!
+          %br
+  .bubbleBar
+    #bubbles
+  - if (@artMonth.present?)
+    .row.landingPad
+      .container-fluid#featured
+        %p.landingTextColor
+          Artist of the Month:
+          = link_to @artMonth.username, "/users/#{@artMonth.id}", :class => "landingLink"
+        - if (@featPix.present?)
+          .row
+            = link_to @featPix do
+              .featuredTile#featuredPrime
+                :javascript
+                  featureFit("featuredPrime", "#{@featPix.image.url}", 1);
+          - if (@artMonthStuff.present?)
+            .row
+              - @artMonthStuff.each_with_index do |thing, i|
+                .col-md-3
+                  = link_to thing do
+                    .featuredTile{:id => "featTile#{i}"}
+                      :javascript
+                        featureFit("featTile" + "#{i}", "#{thing.image.url(:medium)}", 4);
+          %p.pull-right.landingTextColor
+            = link_to "see more", @artMonth, :class => "landingLink"
 
-	.row
-		%h1.center.collectionsLink.landingPad
-			View Collections
+  .row
+    %h1.center.collectionsLink.landingPad
+      View Collections
 :javascript
-	$(document).ready( function () {
-		limitHeight("landingGal","joinUp");
-		/*  set landingGal's height to be joinUp's height */
-		var joinUp = document.getElementById('joinUp'),
-		resizeFn = function(){
-			limitHeight("landingGal","joinUp");
-		};
-		addResizeListener(joinUp, resizeFn);
-	});
+  $(document).ready( function () {
+    limitHeight("landingGal","joinUp");
+    /*  set landingGal's height to be joinUp's height */
+    var joinUp = document.getElementById('joinUp'),
+    resizeFn = function(){
+      limitHeight("landingGal","joinUp");
+    };
+    addResizeListener(joinUp, resizeFn);
+  });

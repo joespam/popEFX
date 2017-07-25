@@ -1,65 +1,65 @@
--#							= link_to (image_tag thing.image.url(:medium)), thing
+-#              = link_to (image_tag thing.image.url(:medium)), thing
 
 
 .container-fluid
-	.row-fluid
-		.span12
-			.span2.linkWidth
-				%ul.unstyled
-					%li GitHub
-					%li= link_to "Contact & support", "#"
-					%li= link_to "About Us", "#"
-					%li= link_to "FAQ", "#"
-			.span2.linkWidth
-				%ul.unstyled
-					%li Applications
-					%li= link_to "Legal Disclaimer", "#"
-					%li= link_to "Work for popEFX", "#"
-					%li= link_to "Referral Program", "#"
-			.span2.linkwidth
-				%ul.unstyled
-				%li= link_to "Social Media Block", "#"
-	%hr
-	.row-fluid
-		%p.muted.pull-right
-			© 2016 popEFX. All rights reserved
+  .row-fluid
+    .span12
+      .span2.linkWidth
+        %ul.unstyled
+          %li GitHub
+          %li= link_to "Contact & support", "#"
+          %li= link_to "About Us", "#"
+          %li= link_to "FAQ", "#"
+      .span2.linkWidth
+        %ul.unstyled
+          %li Applications
+          %li= link_to "Legal Disclaimer", "#"
+          %li= link_to "Work for popEFX", "#"
+          %li= link_to "Referral Program", "#"
+      .span2.linkwidth
+        %ul.unstyled
+        %li= link_to "Social Media Block", "#"
+  %hr
+  .row-fluid
+    %p.muted.pull-right
+      © 2016 popEFX. All rights reserved
 
 
 %nav.navbar.navbar-default.maintheme-link.headgrad
-	.container-fluid
-		.navbar-header
-			= link_to "#{image_tag("popEFX_logo.png", :height => 100)}".html_safe, root_path, :class => "navbar-brand"
-			%p.navbar-text.navbar-right
-				Dont sell your soul for your art
-	.col
-		.navbar.navbar-header
-			%ul.nav.navbar-nav
-				%li= link_to "IMAGES", new_picture_path
-				%li= link_to "ILLUSTRATIONS", "#"
-				%li= link_to "VIDEO", "#"
-				%li= link_to "ANIMATION", "#"
-				%li= link_to "APPS", "#"
-				%li= link_to "CODING", "#"
+  .container-fluid
+    .navbar-header
+      = link_to "#{image_tag("popEFX_logo.png", :height => 100)}".html_safe, root_path, :class => "navbar-brand"
+      %p.navbar-text.navbar-right
+        Dont sell your soul for your art
+  .col
+    .navbar.navbar-header
+      %ul.nav.navbar-nav
+        %li= link_to "IMAGES", new_picture_path
+        %li= link_to "ILLUSTRATIONS", "#"
+        %li= link_to "VIDEO", "#"
+        %li= link_to "ANIMATION", "#"
+        %li= link_to "APPS", "#"
+        %li= link_to "CODING", "#"
 
 
 
 <div class="navbar">
-	<div class="navbar-inner">
-		<ul class="nav">
-			<li><a href="#">Link</a></li>
-			<li><a href="#">Link</a></li>
-			<li><a href="#">Link</a></li>
-			<li><a href="#">Link</a></li>
-		</ul>
-	</div>
+  <div class="navbar-inner">
+    <ul class="nav">
+      <li><a href="#">Link</a></li>
+      <li><a href="#">Link</a></li>
+      <li><a href="#">Link</a></li>
+      <li><a href="#">Link</a></li>
+    </ul>
+  </div>
 </div>
 
 .navbar
-	.navbar-inner
-		%ul.nav
-			%li= link_to "IMAGES", new_picture_path
-			%li= link_to "ILLUSTRATIONS", "#"
-			%li= link_to "VIDEO", "#"
-			%li= link_to "ANIMATION", "#"
-			%li= link_to "APPS", "#"
-			%li= link_to "CODING", "#"
+  .navbar-inner
+    %ul.nav
+      %li= link_to "IMAGES", new_picture_path
+      %li= link_to "ILLUSTRATIONS", "#"
+      %li= link_to "VIDEO", "#"
+      %li= link_to "ANIMATION", "#"
+      %li= link_to "APPS", "#"
+      %li= link_to "CODING", "#"

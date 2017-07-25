@@ -1,76 +1,76 @@
 
 
 .row.signupTop
-	- if @profile.heroImage.present?
-		:javascript
-			setHeroImage("#{@profile.heroImage}");
-	- else
-		.placeholderBlock
+  - if @profile.heroImage.present?
+    :javascript
+      setHeroImage("#{@profile.heroImage}");
+  - else
+    .placeholderBlock
 .col-md-3
-	= image_tag @profile.avatar.url(:medium)
-	%ul.profileMenu
-		%li= image_tag 'proficons.png'
+  = image_tag @profile.avatar.url(:medium)
+  %ul.profileMenu
+    %li= image_tag 'proficons.png'
 
-		.row
-			.col-md-4
-				= link_to like_user_path(@user), method: :put, class: "btn btn-default" do
-					%span.glyphicon.glyphicon-heart{ :alt=>"favorite this artist"}
-						=@user.get_upvotes.size
-			.col-md-4
-				= render 'follow'
-			.col-md-4
-				rate
-		- if @user.rating > 0
-			.star-rating{ "data-score" => @user.rating }
+    .row
+      .col-md-4
+        = link_to like_user_path(@user), method: :put, class: "btn btn-default" do
+          %span.glyphicon.glyphicon-heart{ :alt=>"favorite this artist"}
+            =@user.get_upvotes.size
+      .col-md-4
+        = render 'follow'
+      .col-md-4
+        rate
+    - if @user.rating > 0
+      .star-rating{ "data-score" => @user.rating }
 
-		%li= link_to "Read Reviews", "#"
+    %li= link_to "Read Reviews", "#"
 
-		- if user_signed_in? && current_user != @user
-			%li= link_to "Message this Artist", "#"
-		%li= link_to "Set Keyword Alerts", "#"
-		%li= link_to "Set Banking Information", "#"
-		%li= link_to "Account Settings", "#"
-		%li= link_to "Manage Reviews", "#"
+    - if user_signed_in? && current_user != @user
+      %li= link_to "Message this Artist", "#"
+    %li= link_to "Set Keyword Alerts", "#"
+    %li= link_to "Set Banking Information", "#"
+    %li= link_to "Account Settings", "#"
+    %li= link_to "Manage Reviews", "#"
 
 .col-md-9.profilePagePadding
-	%span
-		%h1.profileBrandLevel
-			= @profile.brandname
-		.lvl.lvlc4.profileBrandLevel
-			= @profile.level
+  %span
+    %h1.profileBrandLevel
+      = @profile.brandname
+    .lvl.lvlc4.profileBrandLevel
+      = @profile.level
 
-	%h3= @profile.description
+  %h3= @profile.description
 
-	%h3 Free Images
-	.row
-		- @freePix.each do |pic|
-			.col-md-5ths.col-xs_6
-				.featuredTile
-					= link_to (image_tag pic.image.url(:small)), pic
-	.row
-		#signupGal
-			- @userPix.each do |pic|
-				.imageFrame
-					= link_to (image_tag pic.image.url(:medium)), pic
+  %h3 Free Images
+  .row
+    - @freePix.each do |pic|
+      .col-md-5ths.col-xs_6
+        .featuredTile
+          = link_to (image_tag pic.image.url(:small)), pic
+  .row
+    #signupGal
+      - @userPix.each do |pic|
+        .imageFrame
+          = link_to (image_tag pic.image.url(:medium)), pic
 
 :javascript
-	$('.star-rating').raty({
-		path: '/public/images/ratyrate',
-		readOnly: true,
-		score: function() {
-			return $(this).attr('data-score');
-		}
-	});
+  $('.star-rating').raty({
+    path: '/public/images/ratyrate',
+    readOnly: true,
+    score: function() {
+      return $(this).attr('data-score');
+    }
+  });
 
-	window.onbeforeunload = clearHeroImage;
-	function clearHeroImage() {
-		console.log("removing hero Image");
+  window.onbeforeunload = clearHeroImage;
+  function clearHeroImage() {
+    console.log("removing hero Image");
 
-		// check for existence of child image
-		//
-		var myNode = document.getElementById("heroImage");
-		myNode.innerHTML = '';
+    // check for existence of child image
+    //
+    var myNode = document.getElementById("heroImage");
+    myNode.innerHTML = '';
 
-		return;
-	}
+    return;
+  }
 

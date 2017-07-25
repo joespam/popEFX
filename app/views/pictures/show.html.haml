@@ -1,53 +1,53 @@
 .row.center
-	%form.navbar-form{ :role => "search"}
-	= form_tag root_path, class: "form-inline", method: :get do
-		.input-group.input-group-lg
-			- if params[:srchterm].present?
-				.input-group-btn
-					= link_to "clear", root_path, class: "btn btn-default"
-			= text_field_tag :srchterm, params[:srchterm], class: "form-control", id: "srchterm", autocomplete: "on", :placeholder => "Enter Keywords: eg, blue kitten"
-			.input-group-btn
-				%button.btn.btn-primary{ :type => "submit"}
-					%i.glyphicon.glyphicon-search
+  %form.navbar-form{ :role => "search"}
+  = form_tag root_path, class: "form-inline", method: :get do
+    .input-group.input-group-lg
+      - if params[:srchterm].present?
+        .input-group-btn
+          = link_to "clear", root_path, class: "btn btn-default"
+      = text_field_tag :srchterm, params[:srchterm], class: "form-control", id: "srchterm", autocomplete: "on", :placeholder => "Enter Keywords: eg, blue kitten"
+      .input-group-btn
+        %button.btn.btn-primary{ :type => "submit"}
+          %i.glyphicon.glyphicon-search
 .center
-	%h2= @picture.title
-	.itemFrame#loneImgDiv
-		= image_tag @picture.image.url(), :class => "showItem", :style => "display: none"
-		%img.showItem#loneImg
-			:javascript
-				markImg('#{asset_path @picture.image.url()}','loneImg', '#{asset_path "watermark_temp.png"}');
+  %h2= @picture.title
+  .itemFrame#loneImgDiv
+    = image_tag @picture.image.url(), :class => "showItem", :style => "display: none"
+    %img.showItem#loneImg
+      :javascript
+        markImg('#{asset_path @picture.image.url()}','loneImg', '#{asset_path "watermark_temp.png"}');
 
-	= link_to like_picture_path(@picture), method: :put, class: "btn btn-default" do
-		%span.glyphicon.glyphicon-heart
-			=@picture.get_upvotes.size
-	%h3
-		Description
-	%p= @picture.description
-	- if @keywords.count > 0
-		.center
-			%h3
-				Keywords:
-			%div
-				- @keywords.each do |kw|
-					.keywrd
-						= "#{kw.word}"
-		.clearfix
-	%h3
-		Submitted by
-	%p
-		= link_to Profile.find_by(user_id: @picture.user.id).brandname, @picture.user
-	%hr
-	= link_to "Back", root_path
-	- if @picture.user == current_user
-		= link_to "Edit", edit_picture_path
-		= link_to "Delete", picture_path, method: :delete, data: { confirm: "Are you sure?" }
+  = link_to like_picture_path(@picture), method: :put, class: "btn btn-default" do
+    %span.glyphicon.glyphicon-heart
+      =@picture.get_upvotes.size
+  %h3
+    Description
+  %p= @picture.description
+  - if @keywords.count > 0
+    .center
+      %h3
+        Keywords:
+      %div
+        - @keywords.each do |kw|
+          .keywrd
+            = "#{kw.word}"
+    .clearfix
+  %h3
+    Submitted by
+  %p
+    = link_to Profile.find_by(user_id: @picture.user.id).brandname, @picture.user
+  %hr
+  = link_to "Back", root_path
+  - if @picture.user == current_user
+    = link_to "Edit", edit_picture_path
+    = link_to "Delete", picture_path, method: :delete, data: { confirm: "Are you sure?" }
 :javascript
-	var itemFrame = document.getElementsByClassName('itemFrame')[0];
+  var itemFrame = document.getElementsByClassName('itemFrame')[0];
 
-	var resizeFn = function(){
-		$('.showItem').css({
-			'max-width': $(window).width() - 100,
-			'max-height': $(window).height() - 300	
-		});
-	};
-	addResizeListener(itemFrame, resizeFn);
+  var resizeFn = function(){
+    $('.showItem').css({
+      'max-width': $(window).width() - 100,
+      'max-height': $(window).height() - 300
+    });
+  };
+  addResizeListener(itemFrame, resizeFn);

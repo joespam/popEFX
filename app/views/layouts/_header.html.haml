@@ -1,46 +1,46 @@
 %nav.navbar.navbar-default.headgrad{:role =>"navigation"}
-	-# Brand and toggle get grouped for better mobile display
-	.navbar-header
-		%button.navbar-toggle{:type => "button", "data-target" => "#navbarCollapse", "data-toggle" => "collapse"}
-			%span.sr-only Toggle navigation
-			%span.icon-bar
-			%span.icon-bar
-			%span.icon-bar
+  -# Brand and toggle get grouped for better mobile display
+  .navbar-header
+    %button.navbar-toggle{:type => "button", "data-target" => "#navbarCollapse", "data-toggle" => "collapse"}
+      %span.sr-only Toggle navigation
+      %span.icon-bar
+      %span.icon-bar
+      %span.icon-bar
 
-		= link_to "#{image_tag("popEFX_Logo_Shadow.png", :height => 100)}".html_safe, root_path, :class => "navbar-brand"
+    = link_to "#{image_tag("popEFX_Logo_Shadow.png", :height => 100)}".html_safe, root_path, :class => "navbar-brand"
 
-	-# Collection of nav links and other content for toggling 
-	.collapse.navbar-collapse#navbarCollapse
-		%ul.nav.navbar-nav.pull-right
-			- if user_signed_in?
-				%li= link_to "Users", user_registration_path(:id => current_user)
-				%li= link_to "Edit Profile and Settings", edit_user_registration_path 
-				%li= link_to "Upload", new_picture_path
-				%li= link_to "Sign Out", destroy_user_session_path, method: :delete
-			- else
-				%li= link_to "Log In", new_user_session_path
-				%li= link_to "Sign Up", new_user_registration_path
-		%ul.nav.navbar-nav.navbar-text.pull-right
-			%li.tagline
-				Don't sell your soul for your art
+  -# Collection of nav links and other content for toggling
+  .collapse.navbar-collapse#navbarCollapse
+    %ul.nav.navbar-nav.pull-right
+      - if user_signed_in?
+        %li= link_to "Users", user_registration_path(:id => current_user)
+        %li= link_to "Edit Profile and Settings", edit_user_registration_path
+        %li= link_to "Upload", new_picture_path
+        %li= link_to "Sign Out", destroy_user_session_path, method: :delete
+      - else
+        %li= link_to "Log In", new_user_session_path
+        %li= link_to "Sign Up", new_user_registration_path
+    %ul.nav.navbar-nav.navbar-text.pull-right
+      %li.tagline
+        Don't sell your soul for your art
 
 -#.container
--#	.row.secondaryNav
--#		.center
--#			%ul.nav.navbar-nav
--#				%li= link_to "IMAGES", pictures_path
--#				%li= link_to "ILLUSTRATIONS", "#"
--#				%li= link_to "VIDEO", "#"
--#				%li= link_to "ANIMATION", "#"
--#				%li= link_to "AUDIO", "#"
-	-#			%li= link_to "APPS", "#"
-	-#			%li= link_to "CODING", "#"
+-#  .row.secondaryNav
+-#    .center
+-#      %ul.nav.navbar-nav
+-#        %li= link_to "IMAGES", pictures_path
+-#        %li= link_to "ILLUSTRATIONS", "#"
+-#        %li= link_to "VIDEO", "#"
+-#        %li= link_to "ANIMATION", "#"
+-#        %li= link_to "AUDIO", "#"
+  -#      %li= link_to "APPS", "#"
+  -#      %li= link_to "CODING", "#"
 
 .container
-	%ul.catNav
-		%li= link_to "IMAGES", pictures_path
-		%li= link_to "ILLUSTRATIONS", "#"
-		%li= link_to "VIDEO", "#"
-		%li= link_to "ANIMATION", "#"
-		%li= link_to "AUDIO", "#"
-		%li= link_to "FONTS", "#"
+  %ul.catNav
+    %li= link_to "IMAGES", pictures_path
+    %li= link_to "ILLUSTRATIONS", "#"
+    %li= link_to "VIDEO", "#"
+    %li= link_to "ANIMATION", "#"
+    %li= link_to "AUDIO", "#"
+    %li= link_to "FONTS", "#"

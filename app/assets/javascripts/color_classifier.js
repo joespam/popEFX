@@ -29,14 +29,14 @@ function get_dataset(url, callback)
 
 function rgb_from_hex(triplet) {
   triplet = triplet.replace("#", "");
-  
+
   if (triplet.length == 3) // #rgb == #rrggbb
   {
     triplet = triplet[0] + triplet[0]
             + triplet[1] + triplet[1]
             + triplet[2] + triplet[2];
   }
-  
+
   value = parseInt(triplet, 16);
   var b = Math.floor(value % 256);
   var g = Math.floor((value / 256) % 256);

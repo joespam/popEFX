@@ -1,16 +1,16 @@
 .tempContainer
-	.row.signupTop
-		.col-md-12
-			#signupGal.centered
-				- if @displayPix.present?
-					- @displayPix.each_with_index do |pic,i|
-						= link_to pic do 
-							.picTile{:id => "tile#{i}"}
-								:javascript
-									$('#tile#{i}').css({
-										"background-image":'url(' + "#{pic.image.url(:medium)}" + ')',
-										"background-position":"center",
-										"background-size":"cover"
-									});
-				.signupForm.bg.tc
-					= render "signup"
+  .row.signupTop
+    .col-md-12
+      #signupGal.centered
+        - if @displayPix.present?
+          - @displayPix.each_with_index do |pic,i|
+            = link_to pic do
+              .picTile{:id => "tile#{i}"}
+                :javascript
+                  $('#tile#{i}').css({
+                    "background-image":'url(' + "#{pic.image.url(:medium)}" + ')',
+                    "background-position":"center",
+                    "background-size":"cover"
+                  });
+        .signupForm.bg.tc
+          = render "signup"

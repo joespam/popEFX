@@ -1,32 +1,32 @@
 .filter {
-	display: none;
-	padding: 1em;
-	width: 100%;
-	margin: auto;
-	height: 320px;
-	color: rgb(63,168,161);
-	background-color: white;
-	border: solid 3px black;
-	box-shadow: 10px 10px 5px #888888;
+  display: none;
+  padding: 1em;
+  width: 100%;
+  margin: auto;
+  height: 320px;
+  color: rgb(63,168,161);
+  background-color: white;
+  border: solid 3px black;
+  box-shadow: 10px 10px 5px #888888;
 }
 
 #mediaType {
-	.row-fluid {
-	    overflow: auto;
-	    white-space: nowrap;
-	};
+  .row-fluid {
+      overflow: auto;
+      white-space: nowrap;
+  };
 
-	.row-fluid .col-md-2 {
-	     display: inline-block;
-	     float: none;
-	};
+  .row-fluid .col-md-2 {
+       display: inline-block;
+       float: none;
+  };
 }
 
 #filterBtn {
-	margin: 0 .5em;
+  margin: 0 .5em;
 }
 
 .images {
-	background-image: url('filterBar/images.png');
-	border: solid black 5px;
+  background-image: url('filterBar/images.png');
+  border: solid black 5px;
 }

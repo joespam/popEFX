@@ -1,85 +1,85 @@
 
 %p
-	Signing up is free! Sign up and start selling and buying images today!
+  Signing up is free! Sign up and start selling and buying images today!
 = simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: {multipart: true}) do |f|
-	= f.error_notification
+  = f.error_notification
 
-	.form-inputs
-		#signupRadioStyle
-			= f.input :artist, as: :radio_buttons, label: 'I am ', item_label_class: "radio-inline", item_wrapper_tag: false, collection: ['an Artist', 'a Client']
-		.form-group.form-inline.signupInput.center
-			= f.input :username, required: true, autofocus: true
-		.form-group.form-inline.signupInput.center
-			= f.input :email, required: true, autofocus: true
-		.form-group.form-inline.signupInput.center
-			= f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length)
-		.form-group.form-inline.signupInput.center
-			= f.input :password_confirmation, required: true
+  .form-inputs
+    #signupRadioStyle
+      = f.input :artist, as: :radio_buttons, label: 'I am ', item_label_class: "radio-inline", item_wrapper_tag: false, collection: ['an Artist', 'a Client']
+    .form-group.form-inline.signupInput.center
+      = f.input :username, required: true, autofocus: true
+    .form-group.form-inline.signupInput.center
+      = f.input :email, required: true, autofocus: true
+    .form-group.form-inline.signupInput.center
+      = f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length)
+    .form-group.form-inline.signupInput.center
+      = f.input :password_confirmation, required: true
 
 
-		= f.fields_for :profile do |profile_form|
+    = f.fields_for :profile do |profile_form|
 
-			.form-group.form-inline.signupInput.center.bc
-				= profile_form.input :avatar, input_html: { class: 'form-control', as: :file }
-				= image_tag "", id: "user_profile_attributes_avatar_prev", class: "picPrev"
-			.form-group.form-inline.signupInput.center.bc
-				= profile_form.input :heroImage, input_html: { class: 'form-control', as: :file }
-				= image_tag "", id: "user_profile_attributes_heroImage_prev", class: "picPrev"
-			.form-group.form-inline.signupInput.center
-				= profile_form.input :brandname
-			.form-group.form-inline.signupInput.center
-				= profile_form.input :description
+      .form-group.form-inline.signupInput.center.bc
+        = profile_form.input :avatar, input_html: { class: 'form-control', as: :file }
+        = image_tag "", id: "user_profile_attributes_avatar_prev", class: "picPrev"
+      .form-group.form-inline.signupInput.center.bc
+        = profile_form.input :heroImage, input_html: { class: 'form-control', as: :file }
+        = image_tag "", id: "user_profile_attributes_heroImage_prev", class: "picPrev"
+      .form-group.form-inline.signupInput.center
+        = profile_form.input :brandname
+      .form-group.form-inline.signupInput.center
+        = profile_form.input :description
 
-		.control-group
-			.controls
-				.form-group.form-inline
-					= f.input :picture1, label: 'Pic 1', as: :file
-					= image_tag "", id: "user_picture1_prev", class: "picPrev"
-					= hidden_field_tag :keywordStr1, ""
-				.form-group.form-inline
-					= f.input :picture2, label: 'Pic 2', as: :file
-					= image_tag "", id: "user_picture2_prev", class: "picPrev"
-					= hidden_field_tag :keywordStr2, ""
-				.form-group.form-inline
-					= f.input :picture3, label: 'Pic 3', as: :file
-					= image_tag "", id: "user_picture3_prev", class: "picPrev"
-					= hidden_field_tag :keywordStr3, ""
-				.form-group.form-inline
-					= f.input :picture4, label: 'Pic 4', as: :file
-					= image_tag "", id: "user_picture4_prev", class: "picPrev"
-					= hidden_field_tag :keywordStr4, ""
-				.form-group.form-inline
-					= f.input :picture5, label: 'Pic 5', as: :file
-					= image_tag "", id: "user_picture5_prev", class: "picPrev"
-					= hidden_field_tag :keywordStr5, ""
+    .control-group
+      .controls
+        .form-group.form-inline
+          = f.input :picture1, label: 'Pic 1', as: :file
+          = image_tag "", id: "user_picture1_prev", class: "picPrev"
+          = hidden_field_tag :keywordStr1, ""
+        .form-group.form-inline
+          = f.input :picture2, label: 'Pic 2', as: :file
+          = image_tag "", id: "user_picture2_prev", class: "picPrev"
+          = hidden_field_tag :keywordStr2, ""
+        .form-group.form-inline
+          = f.input :picture3, label: 'Pic 3', as: :file
+          = image_tag "", id: "user_picture3_prev", class: "picPrev"
+          = hidden_field_tag :keywordStr3, ""
+        .form-group.form-inline
+          = f.input :picture4, label: 'Pic 4', as: :file
+          = image_tag "", id: "user_picture4_prev", class: "picPrev"
+          = hidden_field_tag :keywordStr4, ""
+        .form-group.form-inline
+          = f.input :picture5, label: 'Pic 5', as: :file
+          = image_tag "", id: "user_picture5_prev", class: "picPrev"
+          = hidden_field_tag :keywordStr5, ""
 
-	.form-actions
-		.form-group.form-inline.center.bc						
-			= f.button :submit, "Save"
-			= f.button :submit, "Save and Enter Banking"
+  .form-actions
+    .form-group.form-inline.center.bc
+      = f.button :submit, "Save"
+      = f.button :submit, "Save and Enter Banking"
 
 :javascript
-	document.getElementById('user_profile_attributes_avatar_prev').style.visibility = "hidden";
-	document.getElementById('user_profile_attributes_heroImage_prev').style.visibility = "hidden";
-	document.getElementById('user_picture1_prev').style.visibility = "hidden";
-	document.getElementById('user_picture2_prev').style.visibility = "hidden";
-	document.getElementById('user_picture3_prev').style.visibility = "hidden";
-	document.getElementById('user_picture4_prev').style.visibility = "hidden";
-	document.getElementById('user_picture5_prev').style.visibility = "hidden";
+  document.getElementById('user_profile_attributes_avatar_prev').style.visibility = "hidden";
+  document.getElementById('user_profile_attributes_heroImage_prev').style.visibility = "hidden";
+  document.getElementById('user_picture1_prev').style.visibility = "hidden";
+  document.getElementById('user_picture2_prev').style.visibility = "hidden";
+  document.getElementById('user_picture3_prev').style.visibility = "hidden";
+  document.getElementById('user_picture4_prev').style.visibility = "hidden";
+  document.getElementById('user_picture5_prev').style.visibility = "hidden";
 
-	document.getElementById('user_profile_attributes_avatar').addEventListener('change', handleFileSelect, false);
-	document.getElementById('user_profile_attributes_heroImage').addEventListener('change', handleFileSelect, false);
-	document.getElementById('user_picture1').addEventListener('change', handleFileSelect, false);
-	document.getElementById('user_picture2').addEventListener('change', handleFileSelect, false);
-	document.getElementById('user_picture3').addEventListener('change', handleFileSelect, false);
-	document.getElementById('user_picture4').addEventListener('change', handleFileSelect, false);
-	document.getElementById('user_picture5').addEventListener('change', handleFileSelect, false);
+  document.getElementById('user_profile_attributes_avatar').addEventListener('change', handleFileSelect, false);
+  document.getElementById('user_profile_attributes_heroImage').addEventListener('change', handleFileSelect, false);
+  document.getElementById('user_picture1').addEventListener('change', handleFileSelect, false);
+  document.getElementById('user_picture2').addEventListener('change', handleFileSelect, false);
+  document.getElementById('user_picture3').addEventListener('change', handleFileSelect, false);
+  document.getElementById('user_picture4').addEventListener('change', handleFileSelect, false);
+  document.getElementById('user_picture5').addEventListener('change', handleFileSelect, false);
 
-	document.getElementById('user_picture1_prev').addEventListener('load', keywordsFromImage, false);
-	document.getElementById('user_picture2_prev').addEventListener('load', keywordsFromImage, false);
-	document.getElementById('user_picture3_prev').addEventListener('load', keywordsFromImage, false);
-	document.getElementById('user_picture4_prev').addEventListener('load', keywordsFromImage, false);
-	document.getElementById('user_picture5_prev').addEventListener('load', keywordsFromImage, false);
+  document.getElementById('user_picture1_prev').addEventListener('load', keywordsFromImage, false);
+  document.getElementById('user_picture2_prev').addEventListener('load', keywordsFromImage, false);
+  document.getElementById('user_picture3_prev').addEventListener('load', keywordsFromImage, false);
+  document.getElementById('user_picture4_prev').addEventListener('load', keywordsFromImage, false);
+  document.getElementById('user_picture5_prev').addEventListener('load', keywordsFromImage, false);
 
-	var previews = document.querySelector('[id$="_prev"]');
-//	alert(" hey:" + previews.length);
+  var previews = document.querySelector('[id$="_prev"]');
+//  alert(" hey:" + previews.length);
