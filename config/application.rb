@@ -28,7 +28,10 @@ module PopEFX
   config.assets.initialize_on_precompile = false
 
   config.before_initialize do
-    # setup the Searchkick client
+    # setup the Searchkick client on mac:
+    #  $ brew install elasticsearch
+    # run development version of elastic search on console to see messages displayed to console.
+    #  $ elasticsearch
     #
     Searchkick.client = Elasticsearch::Client.new(hosts: ["localhost:9200"], retry_on_failure: true, transport_options: {request: {timeout: 250}})
   end

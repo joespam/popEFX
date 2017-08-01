@@ -15,9 +15,11 @@
 /log/*
 !/log/.keep
 /tmp
+**/.DS_Store
 
 # ignore all images stored in the database
 /public/system/*
+/clientAssets/*
 
 #ignore some scratch files
 /app/views/users/registrations/new2.html.haml
